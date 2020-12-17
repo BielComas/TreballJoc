@@ -17,7 +17,7 @@ public class EnemyMelee
 
     void Update()
     {
-
+        FollowPlayer();
     }
 
     //This method the enemy follow the player.
