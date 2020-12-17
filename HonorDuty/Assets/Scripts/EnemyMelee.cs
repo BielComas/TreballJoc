@@ -55,13 +55,24 @@ public class EnemyMelee: MonoBehaviour
         else
         {
             rb2d.MovePosition(transform.position + dir * speed * Time.deltaTime);
+            //Animations
         }
+
+        if(targetPlayer == InitialPosition && distance < 0.02f)
+        {
+            transform.position = InitialPosition;
+
+            //Animations
+        }
+
+        Debug.DrawLine(transform.position, targetPlayer, Color.green);
 
     }
 
-
-    public void FixedUpdate()
+    public void OnDrawGizmosSelected()
     {
-        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, RatioVision);
+        Gizmos.DrawWireSphere(transform.position, RatioAttack);
     }
 }
