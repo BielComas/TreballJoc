@@ -29,7 +29,7 @@ public class EnemyDistance : MonoBehaviour
 
         if (distance < 10f)
         {
-            rb.MovePosition(target);
+            rb.MovePosition(posEnemy);
         }
     }
     public void FollowPlayer()
