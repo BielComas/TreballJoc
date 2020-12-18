@@ -22,7 +22,7 @@ public class ArrowScript : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-
+            Destroy(gameObject);
         }
     }
 }
