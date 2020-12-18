@@ -8,9 +8,10 @@ public class EnemyDistance : MonoBehaviour
     PlayerController player;
     Vector2 target;
     Vector2 posEnemy;
-    float velocity = 4f;
+    float velocity = 7f;
     [SerializeField] Transform enemy;
     [SerializeField] public int lifesEnemy = 30;
+    [SerializeField] ArrowScript arrow;
     Rigidbody2D rb;
     float distance;
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class EnemyDistance : MonoBehaviour
         if (distance < 10f)
         {
             rb.MovePosition(posEnemy);
+            Instantiate(arrow,posEnemy,Quaternion.identity);
         }
     }
     public void FollowPlayer()
