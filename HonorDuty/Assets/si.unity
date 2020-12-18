@@ -2434,9 +2434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6849b85cdfe0a44e8c3595c657d9a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 1005165960}
   lifesEnemy: 30
-  arrow: {fileID: 0}
+  arrow: {fileID: 1730976159411526899, guid: dca1b0464dc61de488f0a62ffb9cb648, type: 3}
 --- !u!1 &1111601493
 GameObject:
   m_ObjectHideFlags: 0
