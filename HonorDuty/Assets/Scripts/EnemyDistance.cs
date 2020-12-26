@@ -35,9 +35,9 @@ public class EnemyDistance : MonoBehaviour
         if (distance < followRange && distance > shootingRange)
         {
             rb.MovePosition(posEnemy);
-            if (nextFireTime < Time.time) { 
-
-                Instantiate(arrow, enemy.position, Quaternion.identity);
+            if (nextFireTime < Time.time) {
+                float angle = Vector2.Angle(enemy.position, posEnemy);
+                Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45,0)));
                 nextFireTime = Time.time + fireRate;
             }
         }
@@ -45,7 +45,7 @@ public class EnemyDistance : MonoBehaviour
     public void TakeDamage()
     {
         lifesEnemy -= 1;
-        if (lifesEnemy == 0)
+        if (lifesEnemy >= 0)
         {
             Destroy(gameObject);
         }

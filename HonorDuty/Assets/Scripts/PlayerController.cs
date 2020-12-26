@@ -7,8 +7,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform player;
     Vector2 direction;
     public float velocity = 4f;
+    public float rollVelocity = 10f;
+    public float nextRollTime;
+    private bool canRoll = true;
+    public float rollRate = 10f;
     Rigidbody2D rb;
     [SerializeField] int lifesPlayer = 100;
+    private bool canTakeDamage = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +26,38 @@ public class PlayerController : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
 
+        if (Input.GetKeyDown(KeyCode.Space) && canRoll == true)
+        {
+            if (nextRollTime < Time.time)
+            {
+                
+                Roll();
+                nextRollTime = Time.time + rollRate;
+            }
+        }
+
+    }
+    public void TakeDamage()
+    {
+        if(canTakeDamage == true)
+        {
+            lifesPlayer -= 1;
+        }
+        if (lifesPlayer <= 0)
+        {
+
+        }
+
     }
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + direction * velocity * Time.deltaTime);
+    }
+    private void Roll()
+    {
+        print("hola");
+        canRoll = false;
+        rb.AddForce(player.forward * rollVelocity * Time.deltaTime, ForceMode2D.Force);
+        canRoll = true;
     }
 }
