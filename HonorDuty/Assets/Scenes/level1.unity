@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99985875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64000046, y: 0.25000012, z: -10}
+  m_LocalPosition: {x: 0.64000034, y: 0.25000012, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1899,6 +1899,7 @@ GameObject:
   - component: {fileID: 504714676}
   - component: {fileID: 504714675}
   - component: {fileID: 504714677}
+  - component: {fileID: 504714678}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -2021,6 +2022,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 1957714523}
   slotHolder: {fileID: 718913666}
+--- !u!61 &504714678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504714672}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.29}
+    newSize: {x: 0.19, y: 0.29}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.29}
+  m_EdgeRadius: 0
 --- !u!1 &576483502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,6 +2461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6849b85cdfe0a44e8c3595c657d9a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingRange: 2.6
+  followRange: 5.93
   enemy: {fileID: 1005165960}
   lifesEnemy: 30
   arrow: {fileID: 1730976159411526899, guid: dca1b0464dc61de488f0a62ffb9cb648, type: 3}
@@ -10834,7 +10863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015812017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64000046, y: 0.25000012, z: -10}
+  m_LocalPosition: {x: 0.64000034, y: 0.25000012, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1786664353}

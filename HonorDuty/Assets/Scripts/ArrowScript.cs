@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
-    [SerializeField] Transform arrow;
-    float velocity = 4f;
+    public GameObject target;
+    float velocity = 7f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        arrow.position = new Vector2(arrow.position.x + 1 * velocity * Time.deltaTime,arrow.position.y * velocity * Time.deltaTime);
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindObjectOfType<PlayerController>().gameObject;
+        Vector2 playerPos = (target.transform.position - transform.position).normalized * velocity;
+        rb.velocity = new Vector2(playerPos.x, playerPos.y);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
