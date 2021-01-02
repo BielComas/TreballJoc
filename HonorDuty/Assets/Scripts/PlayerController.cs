@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform player;
     Vector2 direction;
     public float velocity = 4f;
-    public float rollVelocity = 10f;
+    public float rollVelocity = 300f;
     public float nextRollTime;
     private bool canRoll = true;
     public float rollRate = 10f;
@@ -55,9 +55,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Roll()
     {
-        print("hola");
-        canRoll = false;
-        rb.AddForce(player.forward * rollVelocity * Time.deltaTime, ForceMode2D.Force);
+
+        
         canRoll = true;
     }
 }

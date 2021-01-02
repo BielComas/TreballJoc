@@ -1986,6 +1986,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 504714674}
   velocity: 4
+  rollVelocity: 10
+  nextRollTime: 0
+  rollRate: 10
   lifesPlayer: 100
 --- !u!50 &504714676
 Rigidbody2D:
@@ -2461,10 +2464,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6849b85cdfe0a44e8c3595c657d9a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingRange: 2.6
+  shootingRange: 3.57
   fireRate: 3
   nextFireTime: 0
-  followRange: 5.93
+  followRange: 8.49
   enemy: {fileID: 1005165960}
   lifesEnemy: 30
   arrow: {fileID: 1730976159411526899, guid: dca1b0464dc61de488f0a62ffb9cb648, type: 3}
