@@ -54,9 +54,11 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + direction * velocity * Time.deltaTime);
     }
     private void Roll()
-    {
-
-        
+    {       
         canRoll = true;
+    }
+    private void Run()
+    {
+        velocity += 3;
     }
 }
