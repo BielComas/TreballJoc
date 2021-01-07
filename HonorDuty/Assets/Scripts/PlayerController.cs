@@ -6,9 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Transform player;
     Vector2 direction;
-    public float velocity = 4f;
+    public float velocity = 3f;
     public float rollVelocity = 300f;
     public float nextRollTime;
+    private bool isRunning = false;
     private bool canRoll = true;
     public float rollRate = 10f;
     Rigidbody2D rb;
@@ -35,6 +36,18 @@ public class PlayerController : MonoBehaviour
                 nextRollTime = Time.time + rollRate;
             }
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (isRunning == false)
+            {
+                Run();
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            velocity = 3f;
+            isRunning = false;
+        }
 
     }
     public void TakeDamage()
@@ -59,6 +72,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Run()
     {
-        velocity += 3;
+        velocity += 2f;
+        isRunning = true;
     }
 }
