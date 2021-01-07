@@ -7,35 +7,33 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform player;
     Vector2 direction;
     public float velocity = 3f;
-    public float rollVelocity = 300f;
-    public float nextRollTime;
     private bool isRunning = false;
-    private bool canRoll = true;
-    public float rollRate = 10f;
     Rigidbody2D rb;
+    private State state;
     [SerializeField] int lifesPlayer = 100;
     private bool canTakeDamage = true;
     // Start is called before the first frame update
     void Start()
     {
+        state = State.Normal;
         rb = player.GetComponent<Rigidbody2D>();
     }
-
+    private enum State
+    {
+        Normal,
+        DodgeRollState,
+    }
     // Update is called once per frame
     void Update()
     {
+
+        switch (state) {
+            case State.Normal:
+
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && canRoll == true)
-        {
-            if (nextRollTime < Time.time)
-            {
-                
-                Roll();
-                nextRollTime = Time.time + rollRate;
-            }
-        }
+        ManageRoll();
         if (Input.GetKey(KeyCode.LeftShift))
         {
             if (isRunning == false)
@@ -48,6 +46,12 @@ public class PlayerController : MonoBehaviour
             velocity = 3f;
             isRunning = false;
         }
+                break;
+            case State.DodgeRollState:
+                Roll();
+                break;
+
+    }
 
     }
     public void TakeDamage()
@@ -66,9 +70,17 @@ public class PlayerController : MonoBehaviour
     {
         rb.MovePosition(rb.position + direction * velocity * Time.deltaTime);
     }
+    private void ManageRoll()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            state = State.DodgeRollState;
+        }
+    }
     private void Roll()
-    {       
-        canRoll = true;
+    {
+        float rollVelocity = 2f;
+        player.position += new Vector3(1, 0, 0) * rollVelocity * Time.deltaTime;
     }
     private void Run()
     {
