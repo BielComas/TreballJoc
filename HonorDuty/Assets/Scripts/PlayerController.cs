@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private bool isRunning = false;
     Rigidbody2D rb;
     private State state;
+    private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
     private bool canTakeDamage = true;
     // Start is called before the first frame update
@@ -50,10 +51,9 @@ public class PlayerController : MonoBehaviour
             case State.DodgeRollState:
                 Roll();
                 break;
-
+    }
     }
 
-    }
     public void TakeDamage()
     {
         if(canTakeDamage == true)
@@ -72,15 +72,20 @@ public class PlayerController : MonoBehaviour
     }
     private void ManageRoll()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             state = State.DodgeRollState;
+            rollDirection = new Vector3(direction.x, direction.y, 0);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            state = State.Normal;
         }
     }
     private void Roll()
     {
         float rollVelocity = 2f;
-        player.position += new Vector3(1, 0, 0) * rollVelocity * Time.deltaTime;
+        player.position += rollDirection * rollVelocity * Time.deltaTime;
     }
     private void Run()
     {
