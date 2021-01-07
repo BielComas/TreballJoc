@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform player;
     Vector2 direction;
     public float velocity = 3f;
+    private float nextRollTime;
+    private float rollRate = 5f;
     private bool isRunning = false;
     Rigidbody2D rb;
     private State state;
+    private bool canRoll = true;
     float rollVelocity;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
@@ -34,15 +37,21 @@ public class PlayerController : MonoBehaviour
 
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
-
-        ManageRoll();
+      
+                
+                if (nextRollTime < Time.time) {
+                    ManageRoll();
+                    nextRollTime = Time.time + rollRate;
+                }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (isRunning == false)
-            {
-                Run();
+                    if (isRunning == false)
+                    {
+                      
+                            Run();
+                         
+                    }
             }
-        }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             velocity = 3f;
@@ -50,8 +59,11 @@ public class PlayerController : MonoBehaviour
         }
                 break;
             case State.DodgeRollState:
-                Roll();
-                break;
+
+               
+                    Roll();
+                 
+        break;
     }
     }
 
@@ -73,7 +85,7 @@ public class PlayerController : MonoBehaviour
     }
     private void ManageRoll()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && canRoll == true)
         {
             state = State.DodgeRollState;
             rollDirection = new Vector3(direction.x, direction.y, 0);
@@ -81,14 +93,15 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void Roll()
-    { 
-        player.position += rollDirection * rollVelocity * Time.deltaTime;
-
-        rollVelocity -= rollVelocity * 15f * Time.deltaTime;
-        if (rollVelocity <= 5f)
-        {
-            state = State.Normal;
-        }
+    {
+       
+            player.position += rollDirection * rollVelocity * Time.deltaTime;
+            rollVelocity -= rollVelocity * 15f * Time.deltaTime;
+            if (rollVelocity <= 5f)
+            {
+                state = State.Normal;
+            }       
+        
     }
     private void Run()
     {
