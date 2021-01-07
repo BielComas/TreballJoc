@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private bool isRunning = false;
     Rigidbody2D rb;
     private State state;
+    float rollVelocity;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
     private bool canTakeDamage = true;
@@ -76,16 +77,18 @@ public class PlayerController : MonoBehaviour
         {
             state = State.DodgeRollState;
             rollDirection = new Vector3(direction.x, direction.y, 0);
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            state = State.Normal;
+            rollVelocity = 25f;
         }
     }
     private void Roll()
-    {
-        float rollVelocity = 2f;
+    { 
         player.position += rollDirection * rollVelocity * Time.deltaTime;
+
+        rollVelocity -= rollVelocity * 15f * Time.deltaTime;
+        if (rollVelocity <= 5f)
+        {
+            state = State.Normal;
+        }
     }
     private void Run()
     {
