@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Vector2 direction;
     public float velocity = 3f;
     private float nextRollTime;
-    private float rollRate = 5f;
+    private float rollRate = 3f;
     private bool isRunning = false;
     Rigidbody2D rb;
     private State state;
@@ -96,12 +96,20 @@ public class PlayerController : MonoBehaviour
     {
        
             player.position += rollDirection * rollVelocity * Time.deltaTime;
-            rollVelocity -= rollVelocity * 15f * Time.deltaTime;
+            rollVelocity -= rollVelocity * 10f * Time.deltaTime;
             if (rollVelocity <= 5f)
             {
                 state = State.Normal;
             }       
         
+    }
+    public void TakeDamage(int quantity)
+    {
+        lifesPlayer -= quantity;
+        if (lifesPlayer <= 0)
+        {
+
+        }
     }
     private void Run()
     {
