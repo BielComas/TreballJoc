@@ -1498,7 +1498,7 @@ GameObject:
   - component: {fileID: 817088604}
   - component: {fileID: 817088603}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Inventari
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6819,10 +6819,10 @@ RectTransform:
   m_Father: {fileID: 146445673}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: 27}
-  m_SizeDelta: {x: 75.947266, y: 75.00023}
+  m_AnchorMin: {x: 0.4205123, y: 0.46361682}
+  m_AnchorMax: {x: 0.5643851, y: 0.7058785}
+  m_AnchoredPosition: {x: 0, y: 2}
+  m_SizeDelta: {x: -0.052734375, y: 3.000229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899479623
 MonoBehaviour:
@@ -6941,10 +6941,10 @@ RectTransform:
   m_Father: {fileID: 146445673}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121, y: 27}
-  m_SizeDelta: {x: 75.947266, y: 75.00023}
+  m_AnchorMin: {x: 0.19679506, y: 0.46361682}
+  m_AnchorMax: {x: 0.337, y: 0.7261214}
+  m_AnchoredPosition: {x: -0.1000061, y: -1.0000153}
+  m_SizeDelta: {x: -2.9932861, y: -2.9998016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016471721
 MonoBehaviour:
@@ -77317,5 +77317,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6830505209682462447, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}
+      propertyPath: inventari
+      value: 
+      objectReference: {fileID: 817088605}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}

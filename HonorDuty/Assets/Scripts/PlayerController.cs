@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private float rollRate = 3f;
     private bool isRunning = false;
     Rigidbody2D rb;
+    public Canvas inventory;
+    private bool InventoryOpen = false;
     private State state;
     private bool canRoll = true;
     float rollVelocity;
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
     {
         state = State.Normal;
         rb = player.GetComponent<Rigidbody2D>();
+        inventory = FindObjectOfType<Canvas>();
+        inventory.enabled = false;
     }
     private enum State
     {
@@ -57,6 +61,19 @@ public class PlayerController : MonoBehaviour
             velocity = 3f;
             isRunning = false;
         }
+        if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen == false)
+                {
+                    InventoryOpen = true;
+                    inventory.enabled = true;
+                    Time.timeScale = 0f;
+                    
+                }
+        else if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen == true)
+                {
+                    InventoryOpen = false;
+                    inventory.enabled = false;
+                    Time.timeScale = 1f;
+                }
                 break;
             case State.DodgeRollState:
 
