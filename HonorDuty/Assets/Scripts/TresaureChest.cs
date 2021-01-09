@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class TresaureChest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private Sprite openSprite, closedSprite;
+
+    private bool isOpen;
+
+    public void Interact()
     {
-        
+        if (isOpen)
+        {
+            StopInteract();
+        }
+        else
+        {
+            isOpen = true;
+            spriteRenderer.sprite = openSprite;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopInteract()
     {
-        
+
     }
 }
