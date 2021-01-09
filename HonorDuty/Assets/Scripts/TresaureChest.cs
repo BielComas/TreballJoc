@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class TresaureChest : MonoBehaviour
 {
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    Animator anim;
+    private bool CanOpen = false;
+    [SerializeField] GameObject Summon1, Summon2;
 
-    [SerializeField]
-    private Sprite openSprite, closedSprite;
-
-    private bool isOpen;
-
-    public void Interact()
+    private void Start()
     {
-        if (isOpen)
+        anim = gameObject.GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && CanOpen == true)
         {
-            StopInteract();
-        }
-        else
-        {
-            isOpen = true;
-            spriteRenderer.sprite = openSprite;
+            anim.SetBool("open", true);
         }
     }
-
-    public void StopInteract()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.transform.tag == "Player")
+        {
+            CanOpen = true;
+        }
     }
+    private void GenerateSummon()
+    {
+        anim.SetBool("open", false);
+    }
+    
+
 }
