@@ -17,12 +17,14 @@ public class EnemyDistance : MonoBehaviour
     [SerializeField] public int lifesEnemy = 30;
     [SerializeField] ArrowScript arrow;
     Rigidbody2D rb;
+    Animator anim;
     float distance;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,14 +36,16 @@ public class EnemyDistance : MonoBehaviour
 
         if (distance <= shootingRange)
         {
-            if (nextFireTime < Time.time) {
-                float angle = Vector2.Angle(enemy.position, posEnemy);
-                Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45,0)));
-                nextFireTime = Time.time + fireRate;
+            anim.SetBool("running", false);
+            if (nextFireTime < Time.time)
+            {
+                anim.SetBool("attack", true);
             }
+            
         }
         if ( distance > followRange && distance < shootingRange)
         {
+            anim.SetBool("running", true);
             rb.MovePosition(posEnemy);
         }
     }
@@ -51,6 +55,17 @@ public class EnemyDistance : MonoBehaviour
         if (lifesEnemy >= 0)
         {
             Destroy(gameObject);
+        }
+    }
+    private void Shoot()
+    {
+        if (nextFireTime < Time.time)
+        {
+            float angle = Vector2.Angle(enemy.position, posEnemy);
+            Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45, 0)));
+            //anim.SetBool("attack", false);
+            nextFireTime = Time.time + fireRate;
+            anim.SetBool("attack", false);
         }
     }
 
