@@ -14,7 +14,7 @@ public class EnemyDistance : MonoBehaviour
     public float nextFireTime;
     public float followRange;
     [SerializeField] Transform enemy;
-    [SerializeField] public int lifesEnemy = 30;
+    [SerializeField] public int lifesEnemy = 100;
     [SerializeField] ArrowScript arrow;
     Rigidbody2D rb;
     Animator anim;
@@ -49,9 +49,9 @@ public class EnemyDistance : MonoBehaviour
             rb.MovePosition(posEnemy);
         }
     }
-    public void TakeDamage()
+    public void TakeDamage(int quantity)
     {
-        lifesEnemy -= 1;
+        lifesEnemy -= quantity;
         if (lifesEnemy >= 0)
         {
             Destroy(gameObject);
@@ -63,7 +63,6 @@ public class EnemyDistance : MonoBehaviour
         {
             float angle = Vector2.Angle(enemy.position, posEnemy);
             Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45, 0)));
-            //anim.SetBool("attack", false);
             nextFireTime = Time.time + fireRate;
             anim.SetBool("attack", false);
         }
