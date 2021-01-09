@@ -32,14 +32,17 @@ public class EnemyDistance : MonoBehaviour
         posEnemy = Vector2.MoveTowards(rb.position, target, velocity * Time.deltaTime);
         distance = Vector2.Distance(target, posEnemy);
 
-        if (distance < followRange && distance > shootingRange)
+        if (distance <= shootingRange)
         {
-            rb.MovePosition(posEnemy);
             if (nextFireTime < Time.time) {
                 float angle = Vector2.Angle(enemy.position, posEnemy);
                 Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45,0)));
                 nextFireTime = Time.time + fireRate;
             }
+        }
+        if ( distance > followRange && distance < shootingRange)
+        {
+            rb.MovePosition(posEnemy);
         }
     }
     public void TakeDamage()
