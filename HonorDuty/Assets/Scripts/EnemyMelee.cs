@@ -57,19 +57,19 @@ public class EnemyMelee : MonoBehaviour
                 myRigidBody.MovePosition(temp);
                 changeAnim(temp - transform.position);
                 ChangeState(EnemyState.walk);
-                animator.SetBool("WakeUp", true); ;
+                animator.SetBool("Running", true); ;
             }
             else if (Vector3.Distance(target.position,
             transform.position) > chaseRadius)
             {
-                animator.SetBool("WakeUp", false);
+                animator.SetBool("Running", false);
             }
         }
     }
     public void SetAnimFloat(Vector2 setVector)
     {
-        animator.SetFloat("MoveX", setVector.x);
-        animator.SetFloat("MoveY", setVector.y);
+        animator.SetFloat("Running", setVector.x);
+        animator.SetFloat("Running", setVector.y);
 
     }
     public void changeAnim(Vector2 direction)
