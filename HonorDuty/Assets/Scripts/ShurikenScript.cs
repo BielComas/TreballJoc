@@ -20,10 +20,11 @@ public class ShurikenScript : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        /*if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
         }
+        */
         if (other.gameObject.CompareTag("Player"))
         {
 
