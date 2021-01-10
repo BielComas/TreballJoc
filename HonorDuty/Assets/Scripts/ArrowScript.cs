@@ -6,7 +6,7 @@ public class ArrowScript : MonoBehaviour
 {
     
     public GameObject target;
-    float velocity = 7f;
+    float velocity = 20f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -23,4 +23,5 @@ public class ArrowScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }

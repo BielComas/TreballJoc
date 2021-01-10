@@ -8,21 +8,25 @@ public class EnemyDistance : MonoBehaviour
     PlayerController player;
     Vector2 target;
     Vector2 posEnemy;
+    Vector2 startPos;
     float velocity = 4f;
     public float shootingRange;
     public float fireRate = 3f;
     public float nextFireTime;
     public float followRange;
     [SerializeField] Transform enemy;
-    [SerializeField] public int lifesEnemy = 30;
+    [SerializeField] public int lifesEnemy = 100;
     [SerializeField] ArrowScript arrow;
     Rigidbody2D rb;
+    Animator anim;
     float distance;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
+        anim = GetComponent<Animator>();
+        startPos = enemy.position;
     }
 
     // Update is called once per frame
@@ -32,22 +36,41 @@ public class EnemyDistance : MonoBehaviour
         posEnemy = Vector2.MoveTowards(rb.position, target, velocity * Time.deltaTime);
         distance = Vector2.Distance(target, posEnemy);
 
-        if (distance < followRange && distance > shootingRange)
+        if (distance <= shootingRange)
         {
-            rb.MovePosition(posEnemy);
-            if (nextFireTime < Time.time) {
-                float angle = Vector2.Angle(enemy.position, posEnemy);
-                Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45,0)));
-                nextFireTime = Time.time + fireRate;
+            anim.SetBool("running", false);
+            if (nextFireTime < Time.time)
+            {
+                anim.SetBool("attack", true);
             }
+            
+        }
+        if ( distance > followRange && distance < shootingRange)
+        {
+            anim.SetBool("running", true);
+            rb.MovePosition(posEnemy);
+        }
+        if(player.isHiden == true)
+        {
+            rb.MovePosition(startPos);
         }
     }
-    public void TakeDamage()
+    public void TakeDamage(int quantity)
     {
-        lifesEnemy -= 1;
+        lifesEnemy -= quantity;
         if (lifesEnemy >= 0)
         {
             Destroy(gameObject);
+        }
+    }
+    private void Shoot()
+    {
+        if (nextFireTime < Time.time)
+        {
+            float angle = Vector2.Angle(enemy.position, posEnemy);
+            Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45, 0)));
+            nextFireTime = Time.time + fireRate;
+            anim.SetBool("attack", false);
         }
     }
 
