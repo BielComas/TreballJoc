@@ -24,6 +24,10 @@ public class ShurikenScript : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+        }
     }
     internal void Setup(Vector2 temp, Func<Vector3> chooseShurikenDirection)
     {

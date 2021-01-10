@@ -8,6 +8,7 @@ public class EnemyDistance : MonoBehaviour
     PlayerController player;
     Vector2 target;
     Vector2 posEnemy;
+    Vector2 startPos;
     float velocity = 4f;
     public float shootingRange;
     public float fireRate = 3f;
@@ -25,6 +26,7 @@ public class EnemyDistance : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
         anim = GetComponent<Animator>();
+        startPos = enemy.position;
     }
 
     // Update is called once per frame
@@ -47,6 +49,10 @@ public class EnemyDistance : MonoBehaviour
         {
             anim.SetBool("running", true);
             rb.MovePosition(posEnemy);
+        }
+        if(player.isHiden == true)
+        {
+            rb.MovePosition(startPos);
         }
     }
     public void TakeDamage(int quantity)

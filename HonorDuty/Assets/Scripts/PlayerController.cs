@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour
     private float nextRollTime;
     private float rollRate = 3f;
     private bool isRunning = false;
+    public bool isHiden = false;
     Rigidbody2D rb;
-    public Canvas inventory;
+    [SerializeField] public Canvas inventory;
     private bool InventoryOpen = false;
     private State state;
     private bool canRoll = true;
@@ -24,7 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         state = State.Normal;
         rb = player.GetComponent<Rigidbody2D>();
-        inventory = FindObjectOfType<Canvas>();
         inventory.enabled = false;
     }
     private enum State
