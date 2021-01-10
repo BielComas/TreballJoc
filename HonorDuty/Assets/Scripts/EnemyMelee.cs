@@ -1,78 +1,96 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class EnemyMelee: MonoBehaviour
+public enum EnemyState
 {
-    public Transform target;
-    public float speed = 10f;
-    Vector3 InitialPosition;
-    public float RatioVision;
-    public float RatioAttack;
-    Rigidbody2D rb2d;
-    GameObject Player;
+    idle,
+    walk,
+    attack,
+    stagger
+}
 
-    //In the method start the enemy detect PlayerController.
+public class EnemyMelee : MonoBehaviour
+{
+    public EnemyState currentState;
+    public int health;
+    public int baseAttack;
+    public float moveSpeed;
+
+    public Transform target;
+
+    public float chaseRadius;
+    public float attackRadius;
+    private Transform homePosition;
+
+    public Animator animator;
+    public Rigidbody2D myRigidBody;
+
+    // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<PlayerController>().transform;
+        currentState = EnemyState.idle;
+        myRigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        target = GameObject.FindWithTag("Player").transform;
     }
 
-
-   public void Update()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-        Vector3 targetPlayer = InitialPosition;
-
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
-            Player.transform.position - transform.position,
-            RatioVision,
-            1<< LayerMask.NameToLayer("Default")
-            //here what we do is put it in another layer to avoid RayCast.
-            );
-
-        Vector3 forward = transform.TransformDirection(Player.transform.position - transform.position);
-        Debug.DrawLine(transform.position, forward, Color.red);
-
-        if (hit.collider != null)
+        CheckDistance();
+    }
+    public virtual void CheckDistance()
+    {
+        if (Vector3.Distance(target.position,
+            transform.position) <= chaseRadius
+            && Vector3.Distance(target.position,
+            transform.position) > attackRadius)
         {
-            if (hit.collider.tag == "Player")
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk
+                && currentState != EnemyState.stagger)
             {
-                targetPlayer = Player.transform.position;
+                Vector3 temp = Vector3.MoveTowards(transform.position,
+                    target.position, moveSpeed * Time.deltaTime);
+
+                myRigidBody.MovePosition(temp);
+                changeAnim(temp - transform.position);
+                ChangeState(EnemyState.walk);
+                animator.SetBool("WakeUp", true); ;
+            }
+            else if (Vector3.Distance(target.position,
+            transform.position) > chaseRadius)
+            {
+                animator.SetBool("WakeUp", false);
             }
         }
-
-        float distance = Vector3.Distance(targetPlayer, transform.position);
-        Vector3 dir = (targetPlayer - transform.position).normalized;
-
-        if (targetPlayer != InitialPosition && distance < RatioAttack)
-        {
-            //AnimationEnemy.x
-            //AnimatioEnemy.y
-            //AnimatioCaminar
-            //QuitarVida
-        }
-        else
-        {
-            rb2d.MovePosition(transform.position + dir * speed * Time.deltaTime);
-            //Animations
-        }
-
-        if(targetPlayer == InitialPosition && distance < 0.02f)
-        {
-            transform.position = InitialPosition;
-
-            //Animations
-        }
-
-        Debug.DrawLine(transform.position, targetPlayer, Color.green);
+    }
+    public void SetAnimFloat(Vector2 setVector)
+    {
+        animator.SetFloat("MoveX", setVector.x);
+        animator.SetFloat("MoveY", setVector.y);
 
     }
-
-    public void OnDrawGizmosSelected()
+    public void changeAnim(Vector2 direction)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, RatioVision);
-        Gizmos.DrawWireSphere(transform.position, RatioAttack);
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+            {
+                SetAnimFloat(Vector2.right);
+            }
+            else if (direction.x < 0)
+            {
+                SetAnimFloat(Vector2.left);
+            }
+        }
+    }
+    public void ChangeState(EnemyState newState)
+    {
+        if (currentState != newState)
+        {
+            currentState = newState;
+        }
     }
 }
