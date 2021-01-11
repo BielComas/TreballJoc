@@ -10,7 +10,7 @@ public class SwordScript : MonoBehaviour
     //If the sword collision with enemy, enemy die
     public void OnTriggerEnter2D(Collider2D other)
     {
-       if (Input.GetKeyDown("Button0"))
+       if (Input.GetKeyDown("space"))
         {
             if (other.gameObject.CompareTag("Enemy"))
             {

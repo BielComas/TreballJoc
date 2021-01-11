@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Transform player;
+    public float damage = 1f;
     Vector2 direction;
     public float velocity = 3f;
     private float nextRollTime;
@@ -19,7 +20,10 @@ public class PlayerController : MonoBehaviour
     float rollVelocity;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
+    [SerializeField] int lifesEnemy = 100;
+
     private bool canTakeDamage = true;
+    private bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +86,18 @@ public class PlayerController : MonoBehaviour
                  
         break;
     }
+        //If press space character attack enemy.
+        if (Input.GetKeyDown("space"))
+        {
+            //Animation player attack
+            if (canAttack == true)
+            {
+                lifesEnemy -= 1;
+            }
+            if(lifesEnemy <= 0){
+                //death enemy
+            }
+        }
     }
 
     public void TakeDamage()
@@ -134,3 +150,4 @@ public class PlayerController : MonoBehaviour
         isRunning = true;
     }
 }
+

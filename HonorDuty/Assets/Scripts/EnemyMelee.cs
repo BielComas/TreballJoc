@@ -17,6 +17,7 @@ public class EnemyMelee : MonoBehaviour
     public int health;
     public int baseAttack;
     public float moveSpeed;
+    int lifesEnemy = 100;
 
     public Transform target;
 
