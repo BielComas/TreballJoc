@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4fca9843d3cd846a5791f07e3bef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smoke: {fileID: 8363502489977087706, guid: 5118d8a925dcf2b498a7103ec84899ec, type: 3}
+  speed: 5
 --- !u!114 &3354612865551417186
 MonoBehaviour:
   m_ObjectHideFlags: 0
