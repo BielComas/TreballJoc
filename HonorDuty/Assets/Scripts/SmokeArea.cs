@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmokeArea : MonoBehaviour
 {
-    public float radius = 5;
+    public float radius = 2;
 
     // Start is called before the first frame update
     void Start()
