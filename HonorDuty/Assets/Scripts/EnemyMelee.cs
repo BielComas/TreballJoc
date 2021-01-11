@@ -94,4 +94,12 @@ public class EnemyMelee : MonoBehaviour
             currentState = newState;
         }
     }
+    public void TakeDamage(int quantity)
+    {
+        lifesEnemy -= quantity;
+        if (lifesEnemy <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

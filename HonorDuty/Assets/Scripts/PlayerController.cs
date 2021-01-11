@@ -15,14 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Canvas inventory;
     private bool InventoryOpen = false;
     private State state;
-    private bool canRoll = true;
     float rollVelocity;
     Animator anim;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
-
     private bool canTakeDamage = true;
-    private bool canAttack = true;
+    private bool isAttacking = false;
+    EnemyDistance enemyDistance;
+    EnemyMelee enemyMelee;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("attack",false);
         anim.SetBool("roll",false);
+
+        enemyDistance = FindObjectOfType<EnemyDistance>();
+        enemyMelee = FindObjectOfType<EnemyMelee>();
     }
     private enum State
     {
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) && isAttacking == false)
                 {
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
@@ -60,20 +63,20 @@ public class PlayerController : MonoBehaviour
                 {
                     anim.SetBool("running", false);
                 }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && isAttacking == false)
                 {
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
                     anim.SetBool("attack", false);
                     player.GetComponent<SpriteRenderer>().flipX = true;
                 }
-                if (Input.GetKey(KeyCode.S))
+                if (Input.GetKey(KeyCode.S) && isAttacking == false)
                 {
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
                     anim.SetBool("attack", false);
                 }
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.W) && isAttacking == false)
                 {
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
@@ -90,11 +93,18 @@ public class PlayerController : MonoBehaviour
                     { 
                             Run();  
                     }
-            }
+        }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             velocity = 3f;
             isRunning = false;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+                    isAttacking = true;
+                    anim.SetBool("running", false);
+                    anim.SetBool("roll", false);
+                    anim.SetBool("attack", true);
         }
         if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == false)
                 {
@@ -123,19 +133,47 @@ public class PlayerController : MonoBehaviour
     {
         rb.MovePosition(rb.position + direction * velocity * Time.deltaTime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "EnemyDistance" && isAttacking == true)
+        {
+            enemyDistance.TakeDamage(15);
+        }
+        if(collision.transform.tag == "EnemyMelee" && isAttacking == true)
+        {
+            enemyMelee.TakeDamage(10);
+        }
+        if(collision.transform.tag == "SpecialEnemy" && isAttacking == true)
+        {
+
+        }
+    }
     private void ManageRoll()
     {
-        if (Input.GetKey(KeyCode.Space) && canRoll == true)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            state = State.DodgeRollState;
-            rollDirection = new Vector3(direction.x, direction.y, 0);
-            rollVelocity = 25f;
+            anim.SetBool("roll", true);
+            anim.SetBool("running", false);
+            anim.SetBool("attack", false);
+
             
+            rollDirection = new Vector3(direction.x, direction.y, 0);
+            rollVelocity = 100f;
+            state = State.DodgeRollState;
+
         }
+    }
+    public void StopAttacking()
+    {
+        anim.SetBool("roll", false);
+        anim.SetBool("running", false);
+        anim.SetBool("attack", false);
+        isAttacking = false;
     }
     private void Roll()
     {
-       
+        
+
             player.position += rollDirection * rollVelocity * Time.deltaTime;
             rollVelocity -= rollVelocity * 10f * Time.deltaTime;
             if (rollVelocity <= 5f)
@@ -146,12 +184,16 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage(int quantity)
     {
-        lifesPlayer -= quantity;
+        if (canTakeDamage == true)
+        {
+            lifesPlayer -= quantity;
+        }
         if (lifesPlayer <= 0)
         {
 
         }
     }
+    
     private void Run()
     {
         velocity += 2f;
