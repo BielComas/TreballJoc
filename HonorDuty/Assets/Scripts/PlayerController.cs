@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Transform player;
-    public float damage = 1f;
     Vector2 direction;
     public float velocity = 3f;
     private float nextRollTime;
@@ -18,9 +17,9 @@ public class PlayerController : MonoBehaviour
     private State state;
     private bool canRoll = true;
     float rollVelocity;
+    Animator anim;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
-    [SerializeField] int lifesEnemy = 100;
 
     private bool canTakeDamage = true;
     private bool canAttack = true;
@@ -30,6 +29,10 @@ public class PlayerController : MonoBehaviour
         state = State.Normal;
         rb = player.GetComponent<Rigidbody2D>();
         inventory.enabled = false;
+        anim = player.GetComponent<Animator>();
+
+        anim.SetBool("attack",false);
+        anim.SetBool("roll",false);
     }
     private enum State
     {
@@ -45,19 +48,47 @@ public class PlayerController : MonoBehaviour
 
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
-      
-                
+        if(Input.GetKey(KeyCode.D))
+                {
+                    anim.SetBool("running", true);
+                    anim.SetBool("roll", false);
+                    anim.SetBool("attack", false);
+                    player.GetComponent<SpriteRenderer>().flipX = false;
+                }
+        
+        else
+                {
+                    anim.SetBool("running", false);
+                }
+        if (Input.GetKey(KeyCode.A))
+                {
+                    anim.SetBool("running", true);
+                    anim.SetBool("roll", false);
+                    anim.SetBool("attack", false);
+                    player.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    anim.SetBool("running", true);
+                    anim.SetBool("roll", false);
+                    anim.SetBool("attack", false);
+                }
+                if (Input.GetKey(KeyCode.W))
+                {
+                    anim.SetBool("running", true);
+                    anim.SetBool("roll", false);
+                    anim.SetBool("attack", false);
+                }
+
                 if (nextRollTime < Time.time) {
                     ManageRoll();
                     nextRollTime = Time.time + rollRate;
                 }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift)) 
         {
                     if (isRunning == false)
-                    {
-                      
-                            Run();
-                         
+                    { 
+                            Run();  
                     }
             }
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -65,14 +96,14 @@ public class PlayerController : MonoBehaviour
             velocity = 3f;
             isRunning = false;
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen == false)
+        if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == false)
                 {
                     InventoryOpen = true;
                     inventory.enabled = true;
                     Time.timeScale = 0f;
                     
                 }
-        else if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen == true)
+        else if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == true)
                 {
                     InventoryOpen = false;
                     inventory.enabled = false;
@@ -86,32 +117,8 @@ public class PlayerController : MonoBehaviour
                  
         break;
     }
-        //If press space character attack enemy.
-        if (Input.GetKeyDown("space"))
-        {
-            //Animation player attack
-            if (canAttack == true)
-            {
-                lifesEnemy -= 1;
-            }
-            if(lifesEnemy <= 0){
-                //death enemy
-            }
-        }
     }
 
-    public void TakeDamage()
-    {
-        if(canTakeDamage == true)
-        {
-            lifesPlayer -= 1;
-        }
-        if (lifesPlayer <= 0)
-        {
-
-        }
-
-    }
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + direction * velocity * Time.deltaTime);
@@ -123,6 +130,7 @@ public class PlayerController : MonoBehaviour
             state = State.DodgeRollState;
             rollDirection = new Vector3(direction.x, direction.y, 0);
             rollVelocity = 25f;
+            
         }
     }
     private void Roll()
