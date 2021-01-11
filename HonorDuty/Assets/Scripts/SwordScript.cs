@@ -11,12 +11,15 @@ public class SwordScript : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
        if (Input.GetKeyDown("Button0"))
-        if (other.gameObject.CompareTag("Enemy"))
         {
-            //DeathAnimation
-            Destroy(this.gameObject);
-            
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                //if live enemy arrives 0
+                Destroy(this.gameObject);
+
+            }
         }
+        
 
 
     }
