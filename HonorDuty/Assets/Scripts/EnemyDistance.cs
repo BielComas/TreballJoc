@@ -15,7 +15,7 @@ public class EnemyDistance : MonoBehaviour
     public float nextFireTime;
     public float followRange;
     [SerializeField] Transform enemy;
-    [SerializeField] public int lifesEnemy = 100;
+    public int lifesEnemy = 100;
     [SerializeField] ArrowScript arrow;
     Rigidbody2D rb;
     Animator anim;
@@ -66,11 +66,19 @@ public class EnemyDistance : MonoBehaviour
     }
     public void TakeDamage(int quantity)
     {
+        anim.SetBool("takeDamage", true);
         lifesEnemy -= quantity;
-        if (lifesEnemy >= 0)
+        if (lifesEnemy <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
+        anim.SetBool("takeDamage", false);
+    }
+    IEnumerator Die ()
+    {
+        anim.SetBool("die",true);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
     }
     private void Shoot()
     {

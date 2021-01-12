@@ -101,10 +101,10 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-                    isAttacking = true;
                     anim.SetBool("running", false);
                     anim.SetBool("roll", false);
                     anim.SetBool("attack", true);
+                    isAttacking = true;
         }
         if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == false)
                 {
@@ -163,12 +163,9 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    public void StopAttacking()
+    public void Attack()
     {
-        anim.SetBool("roll", false);
-        anim.SetBool("running", false);
-        anim.SetBool("attack", false);
-        isAttacking = false;
+        
     }
     private void Roll()
     {
