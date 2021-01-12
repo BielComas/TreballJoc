@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform player;
     public Transform attackPoint;
     public float attackRange = 0.5f;
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
     Vector2 direction;
     public float velocity = 3f;
-    private float nextRollTime;
+    private float nextRollTime = 0f;
     private float rollRate = 3f;
     private bool isRunning = false;
     public bool isHiden = false;
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
                 direction.y = Input.GetAxis("Vertical");
                 if (Input.GetKey(KeyCode.D))
                 {
+                    attackPoint.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
                     player.GetComponent<SpriteRenderer>().flipX = false;
@@ -65,18 +68,21 @@ public class PlayerController : MonoBehaviour
                 }
                 if (Input.GetKey(KeyCode.A))
                 {
+                    attackPoint.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
                     player.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
+                    attackPoint.position = new Vector2(transform.position.x , transform.position.y - 0.7f);
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
 
                 }
                 if (Input.GetKey(KeyCode.W))
                 {
+                    attackPoint.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
                     anim.SetBool("running", true);
                     anim.SetBool("roll", false);
 
@@ -98,10 +104,15 @@ public class PlayerController : MonoBehaviour
                 {
                     velocity = 3f;
                     isRunning = false;
-                }
-                if (Input.GetMouseButtonDown(0))
+                }               
+                if (Time.time >= nextAttackTime)
                 {
-                    Attack();
+                    if (Input.GetMouseButtonDown(0))
+                    {
+
+                        Attack();
+                        nextAttackTime = Time.time + 1f / attackRate;
+                    }
                 }
                 if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == false)
                 {
@@ -178,8 +189,14 @@ public class PlayerController : MonoBehaviour
         }
         if (lifesPlayer <= 0)
         {
-
+            StartCoroutine(Die());
         }
+    }
+    IEnumerator Die()
+    {
+        anim.SetBool("die", true);
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
     private void Run()

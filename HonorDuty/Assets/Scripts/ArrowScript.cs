@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ArrowScript : MonoBehaviour
 {
-    
+    PlayerController player;
     public GameObject target;
     float velocity = 20f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();    
         target = FindObjectOfType<PlayerController>().gameObject;
         Vector2 playerPos = (target.transform.position - transform.position).normalized * velocity;
@@ -30,7 +31,9 @@ public class ArrowScript : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
+            player.TakeDamage(20);
             Destroy(gameObject);
+
         }
     }
     
