@@ -25,7 +25,7 @@ public class EnemyDistance : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
-        anim = GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
         startPos = enemy.position;
     }
 
