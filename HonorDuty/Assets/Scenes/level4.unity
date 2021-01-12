@@ -340,6 +340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventari
       objectReference: {fileID: 0}
+    - target: {fileID: 5067224537698490969, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5067224537812244592, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
