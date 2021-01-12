@@ -49,17 +49,17 @@ public class EnemyDistance : MonoBehaviour
             anim.SetBool("running", false);
             if (nextFireTime < Time.time)
             {
-                
+
                 anim.SetBool("attack", true);
             }
-            
+
         }
-        if ( distance > followRange && distance < shootingRange)
+        if (distance > followRange && distance < shootingRange)
         {
             anim.SetBool("running", true);
             rb.MovePosition(posEnemy);
         }
-        if(player.isHiden == true)
+        if (player.isHiden == true)
         {
             rb.MovePosition(startPos);
         }
@@ -74,9 +74,9 @@ public class EnemyDistance : MonoBehaviour
         }
         anim.SetBool("takeDamage", false);
     }
-    IEnumerator Die ()
+    IEnumerator Die()
     {
-        anim.SetBool("die",true);
+        anim.SetBool("die", true);
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
@@ -96,6 +96,6 @@ public class EnemyDistance : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(enemy.position, followRange);
         Gizmos.DrawWireSphere(enemy.position, shootingRange);
-         
+
     }
 }
