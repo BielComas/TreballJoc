@@ -15,6 +15,16 @@ public class ArrowScript : MonoBehaviour
         target = FindObjectOfType<PlayerController>().gameObject;
         Vector2 playerPos = (target.transform.position - transform.position).normalized * velocity;
         rb.velocity = new Vector2(playerPos.x, playerPos.y);
+        FollowPlayer();
+    }
+    public void FollowPlayer()
+    {
+        Vector3 PlayerPos = target.transform.position;
+        Vector3 obj = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 direction = PlayerPos - obj;
+        direction.z = 4f;
+        direction = direction.normalized;
+        transform.up = direction;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
