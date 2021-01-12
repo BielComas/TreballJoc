@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private bool InventoryOpen = false;
     private State state;
     float rollVelocity;
+    public LayerMask enemyLayer;
     Animator anim;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
@@ -146,7 +147,16 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetTrigger("Attack");
 
-        Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
+        Collider2D [] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+        foreach (Collider2D enemie in hitEnemies)
+        {
+          
+            if(enemie.name == "EnemyDistance")
+            {
+                enemie.GetComponent<EnemyDistance>().TakeDamage(20);
+            }
+        }
     }
     private void Roll()
     {
@@ -176,5 +186,11 @@ public class PlayerController : MonoBehaviour
     {
         velocity += 2f;
         isRunning = true;
+    }
+    private void OnDrawGizmos()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
