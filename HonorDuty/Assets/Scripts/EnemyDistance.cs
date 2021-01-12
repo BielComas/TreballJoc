@@ -36,11 +36,20 @@ public class EnemyDistance : MonoBehaviour
         posEnemy = Vector2.MoveTowards(rb.position, target, velocity * Time.deltaTime);
         distance = Vector2.Distance(target, posEnemy);
 
+        if (target.x < posEnemy.x)
+        {
+            enemy.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if (target.x > posEnemy.x)
+        {
+            enemy.GetComponent<SpriteRenderer>().flipX = false;
+        }
         if (distance <= shootingRange)
         {
             anim.SetBool("running", false);
             if (nextFireTime < Time.time)
             {
+                
                 anim.SetBool("attack", true);
             }
             
