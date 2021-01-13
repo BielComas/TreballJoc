@@ -20,7 +20,7 @@ public class ShurikenScript : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = new Vector2(transform.position.x + 1 * velocity * Time.deltaTime, transform.position.y * Time.deltaTime);
+        //rb.velocity(velocity);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

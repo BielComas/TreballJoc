@@ -10,17 +10,12 @@ public class PlayerShoot : MonoBehaviour
     public Camera cam;
     float nextFireTime = 0f;
     float fireRate = 3f;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-    }
 
     // Update is called once per frame
     void Update()
     {
-       
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (nextFireTime < Time.time)

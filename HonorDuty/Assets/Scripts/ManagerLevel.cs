@@ -14,7 +14,7 @@ public class ManagerLevel : MonoBehaviour
         //El build index lo que fa es agafar el numero del build d'escenes i comptarles.
         actualScene = SceneManager.GetActiveScene().buildIndex;
         //Quan canvii d'escena passará a estar en l'escena ex(0 passará a escena 1 gràcies al ++).
-        nextEscene = actualScene++;
+        nextEscene = actualScene + 1;
         //Llavors s'executará l'escena.
         SceneManager.LoadScene(nextEscene);
 
