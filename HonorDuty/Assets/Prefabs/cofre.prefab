@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db221fdc91e39a444ae6524c1700647e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Summon1: {fileID: 8313177201804584040, guid: 5e5f49c0322ed5345a13f8c7038db96d, type: 3}
-  Summon2: {fileID: 7446591941238713543, guid: e8d236b6e6e0a6e48ac3eb6c16fc031f, type: 3}
+  Summon1: {fileID: 8313177201804584040, guid: 69d3e12d34ee18c46959d47cb80e5d4f, type: 3}
+  Summon2: {fileID: 7446591941238713543, guid: 2843d5fe954f6b04aaaed18f553d22b1, type: 3}
   pressE: {fileID: 5191799749882748172}
 --- !u!61 &5191799748406687489
 BoxCollider2D:
