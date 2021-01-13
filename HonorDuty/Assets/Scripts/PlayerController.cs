@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
     private bool canTakeDamage = true;
-    EnemyDistance enemyDistance;
-    EnemyMelee enemyMelee;
+    ManagerLevel lh;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +34,7 @@ public class PlayerController : MonoBehaviour
         inventory.enabled = false;
         anim = player.GetComponent<Animator>();
         anim.SetBool("roll", false);
-
-        enemyDistance = FindObjectOfType<EnemyDistance>();
-        enemyMelee = FindObjectOfType<EnemyMelee>();
+        lh = FindObjectOfType<ManagerLevel>();
     }
     private enum State
     {
@@ -197,6 +194,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("die", true);
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+        lh.DefeatLevel();
     }
 
     private void Run()

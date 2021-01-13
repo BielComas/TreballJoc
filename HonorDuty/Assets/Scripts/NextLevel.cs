@@ -6,20 +6,21 @@ using UnityEngine;
 public class NextLevel : MonoBehaviour
 {
 
-    private Collider2D collision;
-    public ManagerLevel managementLevel;
+    PlayerController player;
+    ManagerLevel managementLevel;
 
     public void Start()
     {
-        //Fem referencia al collider en la variable col·lisió.
-        collision = GetComponent<Collider2D>();
+        player = FindObjectOfType<PlayerController>();
+        managementLevel = FindObjectOfType<ManagerLevel>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Quan toquem el trigger es quan salta el gestor de nivells
-        //i cada cop que toquem un trigger passará al següent nivell.
-        managementLevel.LoadNextLevel();
+        if (other.name == player.name)
+        {
+            managementLevel.LoadNextLevel();
+        }
     }
 
 
