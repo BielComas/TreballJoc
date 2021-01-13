@@ -5,17 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class ManagerLevel : MonoBehaviour
 {
-    int actualScene;
-    int nextEscene;
+    
 
     public void LoadNextLevel()
     {
+        int actualScene;
+        int nextEscene;
         //El build index lo que fa es agafar el numero del build d'escenes i comptarles.
         actualScene = SceneManager.GetActiveScene().buildIndex;
         //Quan canvii d'escena passará a estar en l'escena ex(0 passará a escena 1 gràcies al ++).
         nextEscene = actualScene++;
         //Llavors s'executará l'escena.
-        SceneManager.LoadScene(actualScene);
+        SceneManager.LoadScene(nextEscene);
 
     }
+
+    public void DefeatLevel()
+    {
+        SceneManager.LoadScene("Defeat");
+    }
+    public void loadMain()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(2);
+    }
+   
 }
