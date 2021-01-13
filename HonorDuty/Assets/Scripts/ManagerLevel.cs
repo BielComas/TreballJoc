@@ -32,5 +32,9 @@ public class ManagerLevel : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void LoadWin()
+    {
+        SceneManager.LoadScene("Win");
+    }
    
 }
