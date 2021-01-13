@@ -13,93 +13,92 @@ public enum EnemyState
 
 public class EnemyMelee : MonoBehaviour
 {
-    public EnemyState currentState;
-    public int health;
-    public int baseAttack;
-    public float moveSpeed;
-    int lifesEnemy = 100;
-
-    public Transform target;
-
-    public float chaseRadius;
-    public float attackRadius;
-    private Transform homePosition;
-
-    public Animator animator;
-    public Rigidbody2D myRigidBody;
-
+    PlayerController player;
+    Vector2 target;
+    Vector2 posEnemy;
+    Vector2 startPos;
+    float velocity = 40f;
+    public float hitRange;
+    public float hitRate = 3f;
+    public float nextHitTime;
+    public float followRange;
+    [SerializeField] Transform enemy;
+    public int lifesEnemy = 100;
+    int currentLifes;
+    [SerializeField] ArrowScript arrow;
+    Rigidbody2D rb;
+    Animator anim;
+    float distance;
     // Start is called before the first frame update
     void Start()
     {
-        currentState = EnemyState.idle;
-        myRigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        target = GameObject.FindWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<PlayerController>();
+        anim = gameObject.GetComponent<Animator>();
+        startPos = enemy.position;
+        currentLifes = lifesEnemy;
     }
+    private void Update()
+    {
+        target = new Vector2(player.transform.position.x, player.transform.position.y);
+        posEnemy = Vector2.MoveTowards(rb.position, target, velocity * Time.deltaTime);
+        distance = Vector2.Distance(target, posEnemy);
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        CheckDistance();
-    }
-    public virtual void CheckDistance()
-    {
-        if (Vector3.Distance(target.position,
-            transform.position) <= chaseRadius
-            && Vector3.Distance(target.position,
-            transform.position) > attackRadius)
+        if (target.x > posEnemy.x)
         {
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk
-                && currentState != EnemyState.stagger)
+            enemy.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        if(target.x < posEnemy.x)
+        {
+            enemy.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if(distance < followRange && distance > hitRange)
+        {
+            anim.SetBool("Running", true);
+            rb.MovePosition(posEnemy);
+           
+        }
+        if (distance <= hitRange)
+        {
+            if (nextHitTime < Time.time)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position,
-                    target.position, moveSpeed * Time.deltaTime);
-
-                myRigidBody.MovePosition(temp);
-                changeAnim(temp - transform.position);
-                ChangeState(EnemyState.walk);
-                animator.SetBool("Running", true); ;
-            }
-            else if (Vector3.Distance(target.position,
-            transform.position) > chaseRadius)
-            {
-                animator.SetBool("Running", false);
+                Attack();
+                nextHitTime = Time.time + hitRate;
             }
         }
-    }
-    public void SetAnimFloat(Vector2 setVector)
-    {
-        animator.SetFloat("Running", setVector.x);
-        animator.SetFloat("Running", setVector.y);
+        if (player.isHiden == true)
+        {
+            rb.MovePosition(startPos);
+        }
+
 
     }
-    public void changeAnim(Vector2 direction)
+    public void Attack()
     {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            if (direction.x > 0)
-            {
-                SetAnimFloat(Vector2.right);
-            }
-            else if (direction.x < 0)
-            {
-                SetAnimFloat(Vector2.left);
-            }
-        }
+        anim.SetTrigger("attack");
+          
     }
-    public void ChangeState(EnemyState newState)
-    {
-        if (currentState != newState)
-        {
-            currentState = newState;
-        }
-    }
+   
+
+ 
     public void TakeDamage(int quantity)
     {
-        lifesEnemy -= quantity;
-        if (lifesEnemy <= 0)
+        currentLifes -= quantity;
+        if (currentLifes <= 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
+    }
+    IEnumerator Die()
+    {
+        anim.SetBool("die", true);
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(enemy.position, followRange);
+        Gizmos.DrawWireSphere(enemy.position, hitRange);
     }
 }

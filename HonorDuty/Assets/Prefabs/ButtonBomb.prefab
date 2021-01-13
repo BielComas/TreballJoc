@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11f42a9cca52e0429a53e3082fa1c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 8313177201804584040, guid: 5e5f49c0322ed5345a13f8c7038db96d, type: 3}
+  item: {fileID: 8313177201804584040, guid: 69d3e12d34ee18c46959d47cb80e5d4f, type: 3}
 --- !u!114 &-4618381667489600927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,4 +159,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 0}
-  shuriken: {fileID: 0}
