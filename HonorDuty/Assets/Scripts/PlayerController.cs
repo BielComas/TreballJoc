@@ -164,6 +164,10 @@ public class PlayerController : MonoBehaviour
             {
                 enemie.GetComponent<EnemyDistance>().TakeDamage(20);
             }
+            if(enemie.name == "EnemyMelee")
+            {
+                enemie.GetComponent<EnemyMelee>().TakeDamage(30);
+            }
         }
     }
     private void Roll()

@@ -76,13 +76,14 @@ public class EnemyMelee : MonoBehaviour
     public void Attack()
     {
         anim.SetTrigger("attack");
-          
+        player.TakeDamage(15); 
     }
    
 
  
     public void TakeDamage(int quantity)
     {
+        anim.SetTrigger("damage");
         currentLifes -= quantity;
         if (currentLifes <= 0)
         {
