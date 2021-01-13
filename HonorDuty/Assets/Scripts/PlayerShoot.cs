@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    [SerializeField] GameObject bomb;
     [SerializeField] GameObject shuriken;
     [SerializeField] Transform firePoint;
     public Vector2 mousePos;
     public Camera cam;
     float nextFireTime = 0f;
     float fireRate = 3f;
+    public int numShurikens = 0;
+    public int numBombs = 0;
 
     // Update is called once per frame
     void Update()
     {
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (nextFireTime < Time.time)
             {
-                Shoot();
+                ShootShuriken();
                 nextFireTime = Time.time + fireRate;
             }
         }
             
         
     }
-    public void Shoot()
+    public void ShootShuriken()
     {
         GameObject bullet = Instantiate(shuriken, firePoint.position, shuriken.transform.rotation);
         Rigidbody2D rb2 = bullet.GetComponent<Rigidbody2D>();

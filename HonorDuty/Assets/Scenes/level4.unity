@@ -34523,10 +34523,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2980fa9a606d8e4881731a4f57b8cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bomb: {fileID: 8313177201804584040, guid: 5e5f49c0322ed5345a13f8c7038db96d, type: 3}
   shuriken: {fileID: 7446591941238713543, guid: e8d236b6e6e0a6e48ac3eb6c16fc031f, type: 3}
   firePoint: {fileID: 827346321}
   mousePos: {x: 0, y: 0}
   cam: {fileID: 99985877}
+  numShurikens: 0
+  numBombs: 0
 --- !u!1 &1775857178
 GameObject:
   m_ObjectHideFlags: 0
