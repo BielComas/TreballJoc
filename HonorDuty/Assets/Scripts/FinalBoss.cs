@@ -65,14 +65,16 @@ public class FinalBoss : MonoBehaviour
 
     public void Attack()
     {
-        anim.SetBool("attack", true);
+        anim.SetTrigger("attack");
         rb.MovePosition(target);
         Collider2D [] playerCol = Physics2D.OverlapCircleAll(boss.position, damageRange, playerLayer);
 
         foreach (Collider2D players in playerCol)
         {
+            print("si");
             if (players.name == player.name)
             {
+                print("si");
                 players.GetComponent<PlayerController>().TakeDamage(30);
             }
         }

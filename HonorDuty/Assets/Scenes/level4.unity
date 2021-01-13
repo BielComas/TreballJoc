@@ -294,7 +294,7 @@ MonoBehaviour:
   attackRange: 8.67
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!1 &99985875
 GameObject:
   m_ObjectHideFlags: 0
@@ -34372,6 +34372,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1052562232}
+    - target: {fileID: 711012137057135360, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}
+      propertyPath: shuriken
+      value: 
+      objectReference: {fileID: 4326932432496095252, guid: e8d236b6e6e0a6e48ac3eb6c16fc031f, type: 3}
     - target: {fileID: 6273623979566943149, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}
       propertyPath: slots.Array.data[0]
       value: 
