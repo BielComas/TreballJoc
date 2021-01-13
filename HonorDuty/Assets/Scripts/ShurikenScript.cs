@@ -5,33 +5,33 @@ using UnityEngine;
 
 public class ShurikenScript : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody2D myRigidBody;
-
+    EnemyDistance enemyDistance;
+    FinalBoss boss;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-    public void Setup(Vector2 velocity, Vector3 direction)
-    {
-        myRigidBody.velocity = velocity.normalized * speed;
-        transform.rotation = Quaternion.Euler(direction);
-    }
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        /*if (other.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(this.gameObject);
-        }
-        */
-        if (other.gameObject.CompareTag("Player"))
-        {
+        boss = FindObjectOfType<FinalBoss>();
+        enemyDistance = FindObjectOfType<EnemyDistance>();
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "map")
+        {
+            Destroy(gameObject);
         }
     }
-    internal void Setup(Vector2 temp, Func<Vector3> chooseShurikenDirection)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        throw new NotImplementedException();
+        if (collision.transform.tag == "Boss")
+        {
+            boss.TakeDamage(40);
+            Destroy(gameObject);
+        }
+        if (collision.transform.tag == "enemy")
+        {
+            enemyDistance.TakeDamage(20);
+            Destroy(gameObject);
+        }
     }
 }

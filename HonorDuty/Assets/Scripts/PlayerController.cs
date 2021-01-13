@@ -168,6 +168,10 @@ public class PlayerController : MonoBehaviour
             {
                 enemie.GetComponent<EnemyMelee>().TakeDamage(30);
             }
+            if(enemie.name == "Boss")
+            {
+                enemie.GetComponent<FinalBoss>().TakeDamage(30);
+            }
         }
     }
     private void Roll()

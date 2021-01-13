@@ -87,7 +87,7 @@ public class EnemyDistance : MonoBehaviour
         if (nextFireTime < Time.time)
         {
             float angle = Vector2.Angle(enemy.position, posEnemy);
-            Instantiate(arrow, enemy.position, Quaternion.Euler(new Vector2(45, 0)));
+            Instantiate(arrow, enemy.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
             anim.SetBool("attack", false);
         }
