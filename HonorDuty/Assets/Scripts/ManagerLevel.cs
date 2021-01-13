@@ -30,7 +30,7 @@ public class ManagerLevel : MonoBehaviour
     }
     public void LoadFirstLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void LoadWin()
     {
