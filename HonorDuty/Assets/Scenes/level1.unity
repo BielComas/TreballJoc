@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &71928240 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6273623980436767359, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}
-  m_PrefabInstance: {fileID: 233437968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &77555011
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,11 +247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99985875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: -0.41999975, y: -23.52, z: -8}
-=======
-  m_LocalPosition: {x: -0.019999642, y: -23.51, z: -8}
->>>>>>> 1304cc985703b88407b6ee83f41ff0a14478c6ea
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12483,11 +12474,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-<<<<<<< HEAD
   m_Follow: {fileID: 410070835}
-=======
-  m_Follow: {fileID: 71928240}
->>>>>>> 1304cc985703b88407b6ee83f41ff0a14478c6ea
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -12511,11 +12498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015812017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: -0.41999975, y: -23.52, z: -8}
-=======
-  m_LocalPosition: {x: -0.019999642, y: -23.51, z: -8}
->>>>>>> 1304cc985703b88407b6ee83f41ff0a14478c6ea
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1786664353}
