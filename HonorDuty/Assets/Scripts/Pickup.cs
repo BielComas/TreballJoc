@@ -5,10 +5,12 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private InventoryScript inventory;
+    PlayerShoot playerAmmo;
     public GameObject ItemButton;
     // Start is called before the first frame update
     void Start()
     {
+        playerAmmo = FindObjectOfType<PlayerShoot>();
         inventory = FindObjectOfType<InventoryScript>();      
     }
 
@@ -22,7 +24,16 @@ public class Pickup : MonoBehaviour
                 {
                     //pots agafar l'objecte
                     inventory.isFull[i] = true;
+                    
                     Instantiate(ItemButton, inventory.slots[i].transform,false);
+                    if (ItemButton.name == "ButtonShuriken")
+                    {
+                        playerAmmo.numShurikens += 1;
+                    }
+                    if (ItemButton.name == "ButtonBomb")
+                    {
+                        playerAmmo.numBombs += 1;
+                    }
                     Destroy(gameObject);
                     break;
                     

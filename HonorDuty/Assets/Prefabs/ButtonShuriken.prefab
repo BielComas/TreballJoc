@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 6442833378313852831}
   - component: {fileID: 7774362481644882231}
   - component: {fileID: 881438670726168698}
-  - component: {fileID: 8676320413003560297}
   m_Layer: 5
   m_Name: ButtonShuriken
-  m_TagString: Untagged
+  m_TagString: buttonShuriken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,19 +119,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6442833378313852831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8676320413003560297}
-        m_TargetAssemblyTypeName: infoShuriken, Assembly-CSharp
-        m_MethodName: ShowInfo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &881438670726168698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,16 +133,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 7446591941238713543, guid: 2843d5fe954f6b04aaaed18f553d22b1, type: 3}
---- !u!114 &8676320413003560297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7121865475908028863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302b60afc642bc144afb52f0e17048b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 0}

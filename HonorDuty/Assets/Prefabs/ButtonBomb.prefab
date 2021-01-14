@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 7087560039866137801}
   - component: {fileID: 4839912373547873040}
   - component: {fileID: 3141852375674434712}
-  - component: {fileID: -4618381667489600927}
   m_Layer: 5
   m_Name: ButtonBomb
-  m_TagString: Untagged
+  m_TagString: buttonBomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,19 +119,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7087560039866137801}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -4618381667489600927}
-        m_TargetAssemblyTypeName: InfoBomb, Assembly-CSharp
-        m_MethodName: ShowInfo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3141852375674434712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,16 +133,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 8313177201804584040, guid: 69d3e12d34ee18c46959d47cb80e5d4f, type: 3}
---- !u!114 &-4618381667489600927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263359387035967638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ff5efcec1486f4ba66fecf089141cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 0}

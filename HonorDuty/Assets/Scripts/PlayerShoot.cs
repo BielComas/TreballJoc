@@ -21,19 +21,39 @@ public class PlayerShoot : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (nextFireTime < Time.time)
+            if (numShurikens > 0)
             {
-                ShootShuriken();
-                nextFireTime = Time.time + fireRate;
+
+                if (nextFireTime < Time.time)
+                {
+                    ShootShuriken();
+                    nextFireTime = Time.time + fireRate;
+                }
             }
         }
-            
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (numBombs > 0)
+            {
+                if (nextFireTime < Time.time)
+                {
+                    ShootBomb();
+                    nextFireTime = Time.time + fireRate;
+                }
+            }
+
+
+        }
     }
     public void ShootShuriken()
     {
         GameObject bullet = Instantiate(shuriken, firePoint.position, shuriken.transform.rotation);
         Rigidbody2D rb2 = bullet.GetComponent<Rigidbody2D>();
         rb2.velocity = new Vector2(mousePos.x - firePoint.position.x, mousePos.y - firePoint.position.y);
+    }
+    public void ShootBomb()
+    {
+
+
     }
 }

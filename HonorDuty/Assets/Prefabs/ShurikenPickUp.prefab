@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6034596616482281666}
   - component: {fileID: 5674511414174488470}
   - component: {fileID: 2121576889176355943}
+  - component: {fileID: 8844633479903900970}
   m_Layer: 0
   m_Name: ShurikenPickUp
   m_TagString: Untagged
@@ -118,3 +119,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemButton: {fileID: 7121865475908028863, guid: deadb06a4d46c074fb1f6b05e84014fb, type: 3}
+--- !u!61 &8844633479903900970
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446591941238713543}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.3, y: 6.3}
+    newSize: {x: 6.3, y: 6.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.3, y: 6.3}
+  m_EdgeRadius: 0

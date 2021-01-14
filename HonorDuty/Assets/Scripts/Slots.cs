@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Slots : MonoBehaviour
 {
+    PlayerShoot playerAmmo;
     [SerializeField] public InventoryScript inventory;
     public int i;
+    private void Start()
+    {
+        playerAmmo = FindObjectOfType<PlayerShoot>();
+    }
     private void Update()
     {
         if(transform.childCount <= 0)
@@ -18,6 +23,14 @@ public class Slots : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.GetComponent<Spawn>().SpawnDroppedItem();
+            if(child.tag == "buttonBomb")
+            {
+                playerAmmo.numBombs -= 1;
+            }
+            if(child.tag == "buttonShuriken")
+            {
+                playerAmmo.numShurikens -= 1;
+            }
            Destroy(child.gameObject);
         }
     }
