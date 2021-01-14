@@ -17,7 +17,7 @@ public class EnemyMelee : MonoBehaviour
     Vector2 target;
     Vector2 posEnemy;
     Vector2 startPos;
-    float velocity = 20f;
+    float velocity = 10f;
     public float hitRange;
     public float hitRate = 3f;
     public float nextHitTime;

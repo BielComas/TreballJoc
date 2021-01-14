@@ -2277,6 +2277,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2492986851306086637, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}
   m_PrefabInstance: {fileID: 485806762}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &485806764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2492986851306086633, guid: 5495df1acdcfbde49b92a502081e666e, type: 3}
+  m_PrefabInstance: {fileID: 485806762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6372f5886061bd843b5f276b4e376c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &489315918
 GameObject:
   m_ObjectHideFlags: 0
@@ -21985,6 +21996,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4009129541580645035, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 485806764}
+    - target: {fileID: 4009129541702533565, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 485806764}
     - target: {fileID: 4009129541889080421, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: m_Name
       value: Inventari
@@ -22073,6 +22092,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4009129542837634882, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 485806764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
 --- !u!223 &1227698085 stripped

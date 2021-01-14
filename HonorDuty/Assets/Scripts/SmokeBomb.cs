@@ -8,7 +8,7 @@ public class SmokeBomb : MonoBehaviour
 
     public GameObject smoke;
     public float speed = 5;
-
+    public float playerHiden;
     PlayerController player;
     // Start is called before the first frame update
     void Start()
@@ -34,12 +34,6 @@ public class SmokeBomb : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Instantiate(smoke, transform.position, Quaternion.identity);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.tag == "Player")
-        {
-            player.isHiden = true;
-        }
+        Destroy(gameObject);
     }
 }

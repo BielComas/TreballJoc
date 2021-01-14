@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             if (numBombs > 0)
             {
@@ -53,7 +53,7 @@ public class PlayerShoot : MonoBehaviour
     }
     public void ShootBomb()
     {
-
-
+        Instantiate(bomb, firePoint.position, bomb.transform.rotation);
+       
     }
 }
