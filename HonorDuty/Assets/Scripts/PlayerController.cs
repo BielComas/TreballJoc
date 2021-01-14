@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
-    private bool canTakeDamage = true;
+    public bool canTakeDamage = true;
     ManagerLevel lh;
     // Start is called before the first frame update
     void Start()
@@ -48,14 +48,14 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case State.Normal:
-
+                canTakeDamage = true;
                 direction.x = Input.GetAxis("Horizontal");
                 direction.y = Input.GetAxis("Vertical");
                 if (Input.GetKey(KeyCode.D))
                 {
                     attackPoint.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
                     anim.SetBool("running", true);
-                    anim.SetBool("roll", false);
+                   
                     player.GetComponent<SpriteRenderer>().flipX = false;
                 }
 
@@ -67,29 +67,26 @@ public class PlayerController : MonoBehaviour
                 {
                     attackPoint.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
                     anim.SetBool("running", true);
-                    anim.SetBool("roll", false);
+                   
                     player.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 if (Input.GetKey(KeyCode.S))
                 {
                     attackPoint.position = new Vector2(transform.position.x , transform.position.y - 0.7f);
                     anim.SetBool("running", true);
-                    anim.SetBool("roll", false);
+               
 
                 }
                 if (Input.GetKey(KeyCode.W))
                 {
                     attackPoint.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
                     anim.SetBool("running", true);
-                    anim.SetBool("roll", false);
-
+                 
                 }
 
-                if (nextRollTime < Time.time)
-                {
+               
                     ManageRoll();
-                    nextRollTime = Time.time + rollRate;
-                }
+                 
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     if (isRunning == false)
@@ -127,7 +124,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case State.DodgeRollState:
 
-
+                canTakeDamage = false;
                 Roll();
 
                 break;
@@ -142,11 +139,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool("roll", true);
-            anim.SetBool("running", false);
+            anim.SetTrigger("roll");
 
             rollDirection = new Vector3(direction.x, direction.y, 0);
-            rollVelocity = 100f;
+            rollVelocity = 25f;
             state = State.DodgeRollState;
 
         }

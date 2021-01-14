@@ -29,6 +29,7 @@ public class EnemyMelee : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     float distance;
+    private bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class EnemyMelee : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         anim = gameObject.GetComponent<Animator>();
         startPos = enemy.position;
-        currentLifes = lifesEnemy;
+        currentLifes = lifesEnemy;    
     }
     private void Update()
     {
@@ -52,7 +53,7 @@ public class EnemyMelee : MonoBehaviour
         {
             enemy.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if(distance < followRange && distance > hitRange)
+        if(distance < followRange && distance > hitRange && canAttack)
         {
             anim.SetBool("Running", true);
             rb.MovePosition(posEnemy);
@@ -68,7 +69,12 @@ public class EnemyMelee : MonoBehaviour
         }
         if (player.isHiden == true)
         {
-            rb.MovePosition(startPos);
+            canAttack = false;
+            posEnemy = Vector2.MoveTowards(rb.position, startPos, velocity * Time.deltaTime);
+            if(rb.position == startPos)
+            {
+                anim.SetBool("Running", false);
+            }
         }
 
 
@@ -76,7 +82,10 @@ public class EnemyMelee : MonoBehaviour
     public void Attack()
     {
         anim.SetTrigger("attack");
-        player.TakeDamage(15); 
+        if (player.canTakeDamage == true)
+        {
+            player.TakeDamage(15);
+        }
     }
    
 

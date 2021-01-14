@@ -21,13 +21,14 @@ public class EnemyDistance : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     float distance;
+    private bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
         anim = gameObject.GetComponent<Animator>();
-        startPos = enemy.position;
+        startPos = rb.position;
         currentLifes = lifesEnemy;
     }
 
@@ -46,7 +47,7 @@ public class EnemyDistance : MonoBehaviour
         {
             enemy.GetComponent<SpriteRenderer>().flipX = false;
         }
-        if (distance <= shootingRange)
+        if (distance <= shootingRange && canAttack)
         {
             anim.SetBool("running", false);
             if (nextFireTime < Time.time)
@@ -63,7 +64,16 @@ public class EnemyDistance : MonoBehaviour
         }
         if (player.isHiden == true)
         {
-            rb.MovePosition(startPos);
+            canAttack = false;
+            posEnemy = Vector2.MoveTowards(rb.position, startPos, velocity * Time.deltaTime);
+            if (rb.position == startPos)
+            {
+                anim.SetBool("Running", false);
+            }
+        }
+        else if(player.isHiden == false)
+        {
+            canAttack = true;
         }
     }
     public void TakeDamage(int quantity)

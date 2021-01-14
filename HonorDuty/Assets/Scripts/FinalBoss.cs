@@ -71,11 +71,12 @@ public class FinalBoss : MonoBehaviour
 
         foreach (Collider2D players in playerCol)
         {
-            print("si");
             if (players.name == player.name)
             {
-                print("si");
-                players.GetComponent<PlayerController>().TakeDamage(30);
+                if (player.canTakeDamage == true)
+                {
+                    players.GetComponent<PlayerController>().TakeDamage(30);
+                }
             }
         }
     }
