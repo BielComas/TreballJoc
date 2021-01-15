@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class PlayerController : MonoBehaviour
     float nextAttackTime = 0f;
     Vector2 direction;
     public float velocity = 3f;
-    private float nextRollTime = 0f;
-    private float rollRate = 3f;
+    public float nextRollTime = 0f;
+    public float rollRate = 3f;
     private bool isRunning = false;
     public bool isHiden = false;
     Rigidbody2D rb;
@@ -24,11 +25,14 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     private Vector3 rollDirection;
     [SerializeField] int lifesPlayer = 100;
+    int currentHealth;
+    public Text healthPoints;
     public bool canTakeDamage = true;
     ManagerLevel lh;
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = lifesPlayer;
         state = State.Normal;
         rb = player.GetComponent<Rigidbody2D>();
         inventory.enabled = false;
@@ -44,10 +48,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         switch (state)
         {
             case State.Normal:
+                healthPoints.text = currentHealth.ToString();
+                if (currentHealth < 0)
+                {
+                    healthPoints.text = "0";
+                }
                 canTakeDamage = true;
                 direction.x = Input.GetAxis("Horizontal");
                 direction.y = Input.GetAxis("Vertical");
@@ -74,8 +83,6 @@ public class PlayerController : MonoBehaviour
                 {
                     attackPoint.position = new Vector2(transform.position.x , transform.position.y - 0.7f);
                     anim.SetBool("running", true);
-               
-
                 }
                 if (Input.GetKey(KeyCode.W))
                 {
@@ -84,8 +91,7 @@ public class PlayerController : MonoBehaviour
                  
                 }
 
-               
-                    ManageRoll();
+                ManageRoll();
                  
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -99,15 +105,17 @@ public class PlayerController : MonoBehaviour
                     velocity = 3f;
                     isRunning = false;
                 }               
-                if (Time.time >= nextAttackTime)
+                
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (Input.GetMouseButtonDown(0))
+                    if (Time.time >= nextAttackTime)
                     {
 
                         Attack();
                         nextAttackTime = Time.time + 1f / attackRate;
                     }
                 }
+                
                 if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == false)
                 {
                     InventoryOpen = true;
@@ -186,9 +194,12 @@ public class PlayerController : MonoBehaviour
     {
         if (canTakeDamage == true)
         {
-            lifesPlayer -= quantity;
+            canTakeDamage = false;
+            anim.SetTrigger("damage");
+            currentHealth -= quantity;
+            canTakeDamage = true;
         }
-        if (lifesPlayer <= 0)
+        if (currentHealth <= 0)
         {
             StartCoroutine(Die());
         }

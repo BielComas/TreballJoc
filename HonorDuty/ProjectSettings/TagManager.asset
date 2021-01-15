@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - buttonBomb
   - buttonShuriken
+  - wall
   layers:
   - Default
   - TransparentFX

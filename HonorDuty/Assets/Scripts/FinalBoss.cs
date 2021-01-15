@@ -92,8 +92,8 @@ public class FinalBoss : MonoBehaviour
     }
     IEnumerator Die()
     {
-        anim.SetBool("death", true);
-        yield return new WaitForSeconds(2f);
+        anim.SetTrigger("death");
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
         lh.LoadWin();
     }

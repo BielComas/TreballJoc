@@ -68,7 +68,7 @@ public class EnemyDistance : MonoBehaviour
             posEnemy = Vector2.MoveTowards(rb.position, startPos, velocity * Time.deltaTime);
             if (rb.position == startPos)
             {
-                anim.SetBool("Running", false);
+                anim.SetBool("running", false);
             }
         }
         else if(player.isHiden == false)

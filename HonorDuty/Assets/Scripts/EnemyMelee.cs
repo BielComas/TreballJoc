@@ -36,7 +36,7 @@ public class EnemyMelee : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
         anim = gameObject.GetComponent<Animator>();
-        startPos = enemy.position;
+        startPos = rb.position;
         currentLifes = lifesEnemy;    
     }
     private void Update()

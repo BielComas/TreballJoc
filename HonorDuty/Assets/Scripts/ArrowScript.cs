@@ -21,11 +21,12 @@ public class ArrowScript : MonoBehaviour
     public void FollowPlayer()
     {
         Vector3 PlayerPos = target.transform.position;
-        Vector3 obj = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 obj = transform.position;
         Vector3 direction = PlayerPos - obj;
-        direction.z = 4f;
+        direction.z = 0f;
         direction = direction.normalized;
         transform.up = direction;
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,5 +37,13 @@ public class ArrowScript : MonoBehaviour
 
         }
     }
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "wall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }

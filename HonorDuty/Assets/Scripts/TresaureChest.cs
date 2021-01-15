@@ -43,12 +43,10 @@ public class TresaureChest : MonoBehaviour
         if(random == 1)
         {
             Instantiate(Summon1,gameObject.transform);
-            print("si");
         }
         if(random == 2)
         {
             Instantiate(Summon2, gameObject.transform);
-            print("no");
         }
     }
     
