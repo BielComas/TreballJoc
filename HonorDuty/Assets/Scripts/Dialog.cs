@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
-    [SerializeField] public string name;
+    public string name="Sensei";
 
     [TextArea(3, 10)]
     [SerializeField] public string[] sentenceList;

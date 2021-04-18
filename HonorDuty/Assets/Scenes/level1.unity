@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 77555013}
   - component: {fileID: 77555012}
   m_Layer: 0
-  m_Name: dialogWiseManager
+  m_Name: dialogueSenseiManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99985875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56123424, y: -24.310682, z: -8}
+  m_LocalPosition: {x: -0.56123435, y: -24.310682, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 406553691}
   - component: {fileID: 406553690}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3150,8 +3150,8 @@ GameObject:
   - component: {fileID: 588429591}
   - component: {fileID: 588429590}
   - component: {fileID: 588429592}
-  m_Layer: 0
-  m_Name: wiseMan
+  m_Layer: 10
+  m_Name: Sensei
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3583,7 +3583,7 @@ GameObject:
   - component: {fileID: 820639958}
   - component: {fileID: 820639957}
   m_Layer: 0
-  m_Name: dialogWise
+  m_Name: dialogueSenseiName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3601,7 +3601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dea9ecd42b93f5488a644fb8e780bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  name: Sensei
   sentenceList:
   - takeda is invading the town again.
   - If we don't stop them now, we're all dead.
@@ -6115,7 +6115,7 @@ GameObject:
   - component: {fileID: 841889744}
   - component: {fileID: 841889743}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6137,7 +6137,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.2}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &841889743
@@ -6162,7 +6162,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
+    m_FontSize: 13
     m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 1
@@ -6292,7 +6292,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930389440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1780608952}
@@ -6300,7 +6300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110.97, y: -54.454}
+  m_AnchoredPosition: {x: 110.97, y: -58.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930389442
@@ -6325,8 +6325,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
-    m_FontStyle: 0
+    m_FontSize: 16
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
@@ -6336,9 +6336,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 'Sensei:'
 --- !u!222 &930389443
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11487,7 +11485,7 @@ GameObject:
   - component: {fileID: 1288695124}
   - component: {fileID: 1288695126}
   m_Layer: 0
-  m_Name: Dialogtrigger
+  m_Name: Dialoguetrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11693,7 +11691,7 @@ GameObject:
   - component: {fileID: 1464299415}
   - component: {fileID: 1464299414}
   m_Layer: 5
-  m_Name: 'DialogWiseCanvas '
+  m_Name: DialogueSensei
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12283,7 +12281,7 @@ GameObject:
   - component: {fileID: 1684427887}
   - component: {fileID: 1684427886}
   m_Layer: 5
-  m_Name: dialog
+  m_Name: dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12305,8 +12303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 205.7, y: -7.1721}
-  m_SizeDelta: {x: 349.46774, y: 14.344269}
+  m_AnchoredPosition: {x: 205.7, y: -16}
+  m_SizeDelta: {x: 349.46774, y: 42.516724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684427886
 MonoBehaviour:
@@ -12330,7 +12328,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 11
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -12387,8 +12385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000028607892, y: 101.54547}
-  m_SizeDelta: {x: 424.9084, y: 138.90906}
+  m_AnchoredPosition: {x: 8, y: 106.1}
+  m_SizeDelta: {x: 443.64777, y: 129.77582}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780608953
 MonoBehaviour:
@@ -12719,7 +12717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015812017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56123424, y: -24.310682, z: -8}
+  m_LocalPosition: {x: -0.56123435, y: -24.310682, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1786664353}
