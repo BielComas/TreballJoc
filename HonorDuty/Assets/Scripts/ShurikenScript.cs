@@ -8,7 +8,7 @@ public class ShurikenScript : MonoBehaviour
     EnemyDistance enemyDistance;
     Rigidbody2D rb;
     EnemyMelee enemyMelee;
-    //float velocity = 10f;
+    float velocity = 10f;
     FinalBoss boss;
     // Start is called before the first frame update
     void Start()
@@ -44,6 +44,10 @@ public class ShurikenScript : MonoBehaviour
         if (collision.transform.tag == "EnemyMelee")
         {
             enemyMelee.TakeDamage(20);
+            Destroy(gameObject);
+        }
+        if (collision.transform.tag == "wall")
+        {
             Destroy(gameObject);
         }
     }

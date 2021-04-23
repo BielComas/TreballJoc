@@ -20,8 +20,6 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialogue(Dialog dialogue)
     {
-        
-
         nameText.text = dialogue.name;
 
         sentences.Clear();
