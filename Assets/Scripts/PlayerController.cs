@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayer;
     Animator anim;
     private Vector3 rollDirection;
-    [SerializeField] int lifesPlayer = 100;
-    int currentHealth;
+    [SerializeField] public int lifesPlayer = 100;
+    public int currentHealth;
     public Text healthPoints;
     public bool canTakeDamage = true;
     ManagerLevel lh;

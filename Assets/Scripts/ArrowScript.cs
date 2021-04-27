@@ -36,14 +36,6 @@ public class ArrowScript : MonoBehaviour
             Destroy(gameObject);
 
         }
-        if (collision.transform.tag == "EnemyMelee")
-        {
-            Destroy(gameObject);
-        }
-        if (collision.transform.tag == "EnemyDistance")
-        {
-            Destroy(gameObject);
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -51,7 +43,9 @@ public class ArrowScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.transform.tag == "EnemyMelee")
+        {
+            Destroy(gameObject);
+        }
     }
-
-
 }
