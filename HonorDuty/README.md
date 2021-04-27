@@ -1,2 +1,0 @@
-# TreballJoc
-hola
