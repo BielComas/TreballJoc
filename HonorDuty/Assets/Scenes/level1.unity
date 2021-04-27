@@ -565,8 +565,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563465331}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.9699999, y: -0.18, z: 3}
+  m_LocalScale: {x: 0.91782534, y: 1.0001018, z: 1}
   m_Children: []
   m_Father: {fileID: 1003989562}
   m_RootOrder: 2
@@ -3436,8 +3436,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838353140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.01, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1, y: -0.19, z: 2}
+  m_LocalScale: {x: 0.91782534, y: 1.0001018, z: 1}
   m_Children: []
   m_Father: {fileID: 1003989562}
   m_RootOrder: 1
@@ -5984,7 +5984,7 @@ GameObject:
   - component: {fileID: 844409775}
   - component: {fileID: 844409776}
   m_Layer: 0
-  m_Name: Mountains  (2)
+  m_Name: Mountains3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5998,8 +5998,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844409774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.2, y: 3.67, z: 6.05432}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 16.544, y: 28.51, z: 6.05432}
+  m_LocalScale: {x: 4.590833, y: 3.1654866, z: 1}
   m_Children: []
   m_Father: {fileID: 1145484239}
   m_RootOrder: 2
@@ -6354,8 +6354,8 @@ Transform:
   m_LocalPosition: {x: 2.1, y: 2.1, z: 0.94568014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1791764963}
   - {fileID: 1169098696}
+  - {fileID: 1791764963}
   - {fileID: 844409775}
   m_Father: {fileID: 2015812019}
   m_RootOrder: 1
@@ -6371,7 +6371,7 @@ GameObject:
   - component: {fileID: 1169098696}
   - component: {fileID: 1169098697}
   m_Layer: 0
-  m_Name: Mountains  (1)
+  m_Name: Mountains1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6385,11 +6385,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169098695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.48, y: 3.67, z: 6.05432}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -11.272, y: 28.584, z: 6.05432}
+  m_LocalScale: {x: 5.280586, y: 3.0372996, z: 1}
   m_Children: []
   m_Father: {fileID: 1145484239}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1169098697
 SpriteRenderer:
@@ -11352,7 +11352,7 @@ GameObject:
   - component: {fileID: 1418242664}
   - component: {fileID: 1418242663}
   m_Layer: 0
-  m_Name: dialogManager
+  m_Name: dialogueManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11462,13 +11462,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463625010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.04, y: -5.58, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 28.7, y: -5.6, z: 0}
+  m_LocalScale: {x: 0.65447325, y: 0.50000024, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1464299413
 GameObject:
   m_ObjectHideFlags: 0
@@ -11693,8 +11693,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540802444}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.9699999, y: -0.18, z: 3}
+  m_LocalScale: {x: 0.91782534, y: 1.0001018, z: 1}
   m_Children: []
   m_Father: {fileID: 1003989562}
   m_RootOrder: 3
@@ -12282,7 +12282,7 @@ GameObject:
   - component: {fileID: 1791764963}
   - component: {fileID: 1791764964}
   m_Layer: 0
-  m_Name: 'Mountains '
+  m_Name: Mountains2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12296,11 +12296,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791764962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1423041, y: 3.67, z: 6.05432}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 3.226, y: 28.558, z: 6.05432}
+  m_LocalScale: {x: 4.015622, y: 3.0580354, z: 1}
   m_Children: []
   m_Father: {fileID: 1145484239}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1791764964
 SpriteRenderer:
@@ -12424,7 +12424,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015812019}
-  - component: {fileID: 2015812018}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -12432,18 +12431,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2015812018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015812017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2015812019
 Transform:
   m_ObjectHideFlags: 0
@@ -12486,8 +12473,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032938662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.11, y: -0.11, z: 4}
+  m_LocalScale: {x: 1.0050219, y: 0.9965439, z: 1}
   m_Children: []
   m_Father: {fileID: 1003989562}
   m_RootOrder: 0
