@@ -13,13 +13,15 @@ public class DialogManager : MonoBehaviour
     [SerializeField] Queue<string> sentences;
 
 
-    private void Start()
+    public void Start()
     {
         sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialog dialogue)
     {
+        Time.timeScale = 0f;
+
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -34,10 +36,12 @@ public class DialogManager : MonoBehaviour
         if (sentences.Count <= 0)
         {
             canvas.SetActive(false);
+            Time.timeScale = 1f;
         }
 
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
+        Time.timeScale = 0f;
     }
 
 }
