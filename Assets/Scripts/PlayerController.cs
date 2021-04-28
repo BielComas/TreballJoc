@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case State.Normal:
-                healthPoints.text = currentHealth.ToString();
+               // healthPoints.text = currentHealth.ToString();
                 if (currentHealth < 0)
                 {
                     healthPoints.text = "0";
