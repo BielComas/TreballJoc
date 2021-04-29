@@ -13,7 +13,12 @@ public class Slots : MonoBehaviour
     }
     private void Update()
     {
-        if(transform.childCount <= 0)
+        Drop();
+    }
+
+    private void Awake()
+    {
+        if (transform.childCount <= 0)
         {
             inventory.isFull[i] = false;
         }
