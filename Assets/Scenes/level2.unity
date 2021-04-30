@@ -184,6 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d78210469c9e0ad40938e3d79532f674, type: 3}
+--- !u!1 &197631532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009129541580645034, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 2745005817367108576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &246069754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,6 +238,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7303617848611059857, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1419339609}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: slots.Array.data[1]
+      value: 
+      objectReference: {fileID: 197631532}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: slots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1992686709}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: isFull.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: isFull.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: isFull.Array.data[2]
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7303617849442774944, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
@@ -6697,6 +6726,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c5e5cf32dc6a64b891a2f3aeee58fd, type: 3}
+--- !u!114 &990160354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+  m_PrefabInstance: {fileID: 246069754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6372f5886061bd843b5f276b4e376c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1003989560
 GameObject:
   m_ObjectHideFlags: 0
@@ -17113,6 +17153,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1419339609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009129542837634881, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 2745005817367108576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1429382354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76443,6 +76488,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1992686709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009129541702533564, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 2745005817367108576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2121378981
 GameObject:
   m_ObjectHideFlags: 0
@@ -76680,11 +76730,11 @@ PrefabInstance:
     - target: {fileID: 4009129541580645035, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 990160354}
     - target: {fileID: 4009129541702533565, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 990160354}
     - target: {fileID: 4009129541889080421, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -76696,7 +76746,7 @@ PrefabInstance:
     - target: {fileID: 4009129542837634882, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 990160354}
     - target: {fileID: 4988227647272699999, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 

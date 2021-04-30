@@ -13,7 +13,10 @@ public class Slots : MonoBehaviour
     }
     private void Update()
     {
-        Drop();
+        if (transform.childCount <= 0)
+        {
+            inventory.isFull[i] = false;
+        }
     }
     public void Drop()
     {
@@ -27,10 +30,6 @@ public class Slots : MonoBehaviour
             if(child.tag == "buttonShuriken")
             {
                 playerAmmo.numShurikens -= 1;
-            }
-            if (transform.childCount <= 0)
-            {
-                inventory.isFull[i] = false;
             }
             Destroy(child.gameObject);
         }
