@@ -8,13 +8,11 @@ public class DialogTrigger : MonoBehaviour
     [SerializeField] Dialog dialogue;
     public GameObject DialogueStart;
     private Animator anim;
-    private PlayerController playerController;
 
     // Start is called before the first frame update
    public void Start()
     {
         canvas.GetComponent<Canvas>().enabled = false;
-        playerController.GetComponent<PlayerController>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -30,18 +28,12 @@ public class DialogTrigger : MonoBehaviour
             {
               Time.timeScale = 1f;
             }
-
-            if(DialogueStart == true)
-            {
-                playerController.enabled = false;
-            }
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
         canvas.GetComponent<Canvas>().enabled = false;
-        playerController.enabled = true;
         Time.timeScale = 1f;
     }
 }

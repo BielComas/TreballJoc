@@ -235,6 +235,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7303617849442774944, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1060140136}
+    - target: {fileID: 7303617849442774944, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: healthPoints
+      value: 
+      objectReference: {fileID: 900727469}
     - target: {fileID: 7303617849442774971, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6617,6 +6625,17 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &900727469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9125476163227411671, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
+  m_PrefabInstance: {fileID: 9125476162600919467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &958111894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6725,6 +6744,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &1060140136 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4009129542491365648, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 2745005817367108576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1116534691
 GameObject:
   m_ObjectHideFlags: 0
@@ -77109,6 +77133,12 @@ PrefabInstance:
     - target: {fileID: 9125476163227411671, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
       propertyPath: m_FontData.m_FontStyle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125476163227411671, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
+      propertyPath: m_Text
+      value: '100
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 9125476163915345728, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
       propertyPath: m_AnchorMin.y
