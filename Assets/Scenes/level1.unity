@@ -3148,7 +3148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1464299416}
   dialogue: {fileID: 820639957}
-  DialogueStart: {fileID: 0}
+  DialogueStart: {fileID: 459943072}
+  playerController: {fileID: 0}
 --- !u!95 &588429589
 Animator:
   serializedVersion: 3
@@ -3327,6 +3328,10 @@ PrefabInstance:
     - target: {fileID: 9125476162695924125, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
       propertyPath: m_Name
       value: Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125476163227411671, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
+      propertyPath: m_Text
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
@@ -6378,6 +6383,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085523075}
   m_CullTransparentMesh: 0
+--- !u!114 &1098474778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9125476163227411671, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
+  m_PrefabInstance: {fileID: 596591080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1116534691
 GameObject:
   m_ObjectHideFlags: 0
@@ -11426,6 +11442,10 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1289952978}
+    - target: {fileID: 7303617849442774944, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: healthPoints
+      value: 
+      objectReference: {fileID: 1098474778}
     - target: {fileID: 7303617849442774971, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11465,6 +11485,7 @@ MonoBehaviour:
   canvas: {fileID: 1507050012}
   dialogue: {fileID: 459943073}
   DialogueStart: {fileID: 1288695123}
+  playerController: {fileID: 0}
 --- !u!4 &1288695125
 Transform:
   m_ObjectHideFlags: 0
