@@ -62,16 +62,16 @@ public class PlayerController : MonoBehaviour
                 direction.y = Input.GetAxis("Vertical");
                 if (Input.GetKey(KeyCode.D))
                 {
-                    attackPoint.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
                     anim.SetBool("running", true);
-                   
+                    attackPoint.position = new Vector2(transform.position.x + 0.7f, transform.position.y);
                     player.GetComponent<SpriteRenderer>().flipX = false;
                 }
-
                 else
                 {
                     anim.SetBool("running", false);
                 }
+
+                
                 if (Input.GetKey(KeyCode.A))
                 {
                     attackPoint.position = new Vector2(transform.position.x - 0.7f, transform.position.y);
