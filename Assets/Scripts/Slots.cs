@@ -15,14 +15,6 @@ public class Slots : MonoBehaviour
     {
         Drop();
     }
-
-    private void Awake()
-    {
-        if (transform.childCount <= 0)
-        {
-            inventory.isFull[i] = false;
-        }
-    }
     public void Drop()
     {
         foreach(Transform child in transform)
@@ -36,7 +28,11 @@ public class Slots : MonoBehaviour
             {
                 playerAmmo.numShurikens -= 1;
             }
-           Destroy(child.gameObject);
+            if (transform.childCount <= 0)
+            {
+                inventory.isFull[i] = false;
+            }
+            Destroy(child.gameObject);
         }
     }
 }

@@ -6,6 +6,8 @@ public class DialogTrigger : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
     [SerializeField] Dialog dialogue;
+    public GameObject DialogueStart;
+
     // Start is called before the first frame update
    public void Start()
     {
@@ -16,10 +18,15 @@ public class DialogTrigger : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            
             canvas.GetComponent<Canvas>().enabled = true;
             FindObjectOfType<DialogManager>().StartDialogue(dialogue);
             Time.timeScale = 0f;
+            GameObject.Destroy(DialogueStart);
+
+            if (DialogueStart == null)
+            {
+              Time.timeScale = 1f;
+            }
         }
     }
 

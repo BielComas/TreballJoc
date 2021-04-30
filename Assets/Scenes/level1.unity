@@ -3148,6 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1464299416}
   dialogue: {fileID: 820639957}
+  DialogueStart: {fileID: 0}
 --- !u!95 &588429589
 Animator:
   serializedVersion: 3
@@ -11463,6 +11464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1507050012}
   dialogue: {fileID: 459943073}
+  DialogueStart: {fileID: 1288695123}
 --- !u!4 &1288695125
 Transform:
   m_ObjectHideFlags: 0
