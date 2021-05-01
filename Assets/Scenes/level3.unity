@@ -2120,6 +2120,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539932505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009129541580645034, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 1227698084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &544888952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9125476163227411671, guid: 487532b0076b6dc428ff61f7ed0d155a, type: 3}
+  m_PrefabInstance: {fileID: 1964799087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!223 &580534717 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 4009129542491365648, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 1227698084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &690597036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21685,6 +21706,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1040006941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009129541702533564, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 1227698084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1083800257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21827,11 +21853,11 @@ PrefabInstance:
     - target: {fileID: 4009129541580645035, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1756986085}
     - target: {fileID: 4009129541702533565, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1756986085}
     - target: {fileID: 4009129541889080421, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: m_Name
       value: Inventari
@@ -21927,9 +21953,14 @@ PrefabInstance:
     - target: {fileID: 4009129542837634882, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1756986085}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+--- !u!1 &1303547186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4009129542837634881, guid: ecb61f9b98cf6294da8ff875d9394ce3, type: 3}
+  m_PrefabInstance: {fileID: 1227698084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1366061123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22290,6 +22321,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67b91cde306ce64bb72283a70bbe60c, type: 3}
+--- !u!114 &1756986085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+  m_PrefabInstance: {fileID: 1813922858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6372f5886061bd843b5f276b4e376c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1813922858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22341,6 +22383,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1303547186}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: slots.Array.data[1]
+      value: 
+      objectReference: {fileID: 539932505}
+    - target: {fileID: 7303617848611059861, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: slots.Array.data[2]
+      value: 
+      objectReference: {fileID: 1040006941}
+    - target: {fileID: 7303617849442774944, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 580534717}
+    - target: {fileID: 7303617849442774944, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
+      propertyPath: healthPoints
+      value: 
+      objectReference: {fileID: 544888952}
     - target: {fileID: 7303617849442774971, guid: c93aff95d7e659244aabd8bcadbfdb74, type: 3}
       propertyPath: m_Name
       value: Player

@@ -7,11 +7,11 @@ public class Slots : MonoBehaviour
     PlayerShoot playerAmmo;
     [SerializeField] public InventoryScript inventory;
     public int i;
-    private void Start()
+    public void Start()
     {
         playerAmmo = FindObjectOfType<PlayerShoot>();
     }
-    private void Update()
+    public void Update()
     {
         if (transform.childCount <= 0)
         {
