@@ -8,7 +8,6 @@ public class DialogManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public GameObject canvas;
-    private string sentence;
 
 
     [SerializeField] Queue<string> sentences;
@@ -39,12 +38,10 @@ public class DialogManager : MonoBehaviour
             canvas.SetActive(false);
             Time.timeScale = 1f;
         }
-        else
-        {
-            sentence = sentences.Dequeue();
-            dialogueText.text = sentence;
-            Time.timeScale = 0f;
-        }        
+
+        string sentence = sentences.Dequeue();
+        dialogueText.text = sentence;
+        Time.timeScale = 0f;
     }
 
 }

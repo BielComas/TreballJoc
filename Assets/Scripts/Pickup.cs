@@ -24,7 +24,8 @@ public class Pickup : MonoBehaviour
                 {
                     //pots agafar l'objecte
                     inventory.isFull[i] = true;
-                    Instantiate(ItemButton, inventory.slots[i].transform, false);
+                    
+                    Instantiate(ItemButton, inventory.slots[i].transform,false);
                     if (ItemButton.name == "ButtonShuriken")
                     {
                         playerAmmo.numShurikens += 1;

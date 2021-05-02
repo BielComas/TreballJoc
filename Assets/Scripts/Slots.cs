@@ -7,13 +7,13 @@ public class Slots : MonoBehaviour
     PlayerShoot playerAmmo;
     [SerializeField] public InventoryScript inventory;
     public int i;
-    public void Start()
+    private void Start()
     {
         playerAmmo = FindObjectOfType<PlayerShoot>();
     }
-    public void Update()
+    private void Update()
     {
-        if (transform.childCount <= 0)
+        if(transform.childCount <= 0)
         {
             inventory.isFull[i] = false;
         }
@@ -31,7 +31,7 @@ public class Slots : MonoBehaviour
             {
                 playerAmmo.numShurikens -= 1;
             }
-            Destroy(child.gameObject);
+           Destroy(child.gameObject);
         }
     }
 }
