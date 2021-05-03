@@ -114,7 +114,16 @@ public class PlayerController : MonoBehaviour
                         nextAttackTime = Time.time + 1f / attackRate;
                     }
                 }
-                
+                if (Input.GetKey(KeyCode.X))
+                {
+                    anim.SetTrigger("damage");
+                    canTakeDamage = false;
+                }
+                if (Input.GetKeyUp(KeyCode.X))
+                {
+                    canTakeDamage = true;
+                }
+
                 if (Input.GetKeyDown(KeyCode.I) && InventoryOpen == false)
                 {
                     InventoryOpen = true;
