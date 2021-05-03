@@ -36,5 +36,9 @@ public class ManagerLevel : MonoBehaviour
     {
         SceneManager.LoadScene("Win");
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
    
 }
