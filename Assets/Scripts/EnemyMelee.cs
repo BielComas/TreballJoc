@@ -81,6 +81,7 @@ public class EnemyMelee : MonoBehaviour
     }
     public void Attack()
     {
+        FindObjectOfType<AudioManager>().Play("Melee Attak");
         anim.SetTrigger("attack");
         if (player.canTakeDamage == true)
         {
@@ -103,7 +104,7 @@ public class EnemyMelee : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Enemy Die");
         anim.SetBool("die", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
     private void OnDrawGizmosSelected()

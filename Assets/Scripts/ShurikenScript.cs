@@ -28,16 +28,19 @@ public class ShurikenScript : MonoBehaviour
     {
         if (collision.transform.tag == "Boss")
         {
+            FindObjectOfType<AudioManager>().Play("Enemy Distance Hit");
             boss.TakeDamage(40);
             Destroy(gameObject);
         }
         if (collision.transform.tag == "EnemyDistance")
         {
+            FindObjectOfType<AudioManager>().Play("Enemy Distance Hit");
             enemyDistance.TakeDamage(20);
             Destroy(gameObject);
         }
         if (collision.transform.tag == "EnemyMelee")
         {
+            FindObjectOfType<AudioManager>().Play("Enemy Distance Hit");
             enemyMelee.TakeDamage(20);
             Destroy(gameObject);
         }

@@ -34,6 +34,7 @@ public class SmokeBomb : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Instantiate(smoke, transform.position, Quaternion.identity);
+        FindObjectOfType<AudioManager>().Play("Smoke Bomb");
         Destroy(gameObject);
     }
 }

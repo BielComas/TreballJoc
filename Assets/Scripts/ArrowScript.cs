@@ -32,11 +32,13 @@ public class ArrowScript : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Enemy Distance Hit");
             player.TakeDamage(20);
             Destroy(gameObject);
         }
         if (collision.transform.tag == "EnemyMelee")
         {
+            FindObjectOfType<AudioManager>().Play("Enemy Distance Hit");
             player.TakeDamage(20);
             Destroy(gameObject);
         }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2492986851660612889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.209, y: 0, z: 0}
+  m_LocalPosition: {x: 0.239, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2492986851306086637}
@@ -157,15 +157,15 @@ MonoBehaviour:
   attackPoint: {fileID: 2492986851296504765}
   attackRange: 1
   attackRate: 2
-  velocity: 4
-  nextRollTime: 0
+  velocity: 5
+  nextRollTime: 1
   rollRate: 3
   isHiden: 0
   inventory: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
-  lifesPlayer: 100
+  lifesPlayer: 150
   currentHealth: 0
   healthPoints: {fileID: 0}
   canTakeDamage: 1

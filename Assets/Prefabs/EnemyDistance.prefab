@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6849b85cdfe0a44e8c3595c657d9a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingRange: 11.5
+  shootingRange: 9
   fireRate: 3
   nextFireTime: 0
   followRange: 12.1

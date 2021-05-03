@@ -64,3 +64,18 @@ MonoBehaviour:
     volume: 0.554
     pitch: 1
     source: {fileID: 0}
+  - name: Melee Attak
+    clip: {fileID: 8300000, guid: 8a5f02a683e1aff4594077ddae6f71f5, type: 3}
+    volume: 0.554
+    pitch: 1
+    source: {fileID: 0}
+  - name: Smoke Bomb
+    clip: {fileID: 8300000, guid: afa2bcf18f3db5244861604e377491d7, type: 3}
+    volume: 0.554
+    pitch: 1
+    source: {fileID: 0}
+  - name: Enemy Distance Hit
+    clip: {fileID: 8300000, guid: f0569e634f8aece45b6e528a9d5f5810, type: 3}
+    volume: 0.554
+    pitch: 1
+    source: {fileID: 0}
