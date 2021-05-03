@@ -110,7 +110,6 @@ public class PlayerController : MonoBehaviour
                 {
                     if (Time.time >= nextAttackTime)
                     {
-
                         Attack();
                         nextAttackTime = Time.time + 1f / attackRate;
                     }
@@ -157,6 +156,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Attack()
     {
+        FindObjectOfType<AudioManager>().Play("Attak");
         anim.SetTrigger("Attack");
 
         Collider2D [] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
@@ -206,8 +206,9 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator Die()
     {
+        FindObjectOfType<AudioManager>().Play("Player Death");
         anim.SetBool("die", true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
         lh.DefeatLevel();
     }

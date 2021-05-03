@@ -88,6 +88,7 @@ public class EnemyDistance : MonoBehaviour
     }
     IEnumerator Die()
     {
+        FindObjectOfType<AudioManager>().Play("Enemy Die 2");
         anim.SetBool("die", true);
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);

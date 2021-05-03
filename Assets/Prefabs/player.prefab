@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2492986851306086637}
   attackPoint: {fileID: 2492986851296504765}
-  attackRange: 0.5
+  attackRange: 1
   attackRate: 2
   velocity: 4
   nextRollTime: 0

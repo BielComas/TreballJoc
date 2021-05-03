@@ -101,6 +101,7 @@ public class EnemyMelee : MonoBehaviour
     }
     IEnumerator Die()
     {
+        FindObjectOfType<AudioManager>().Play("Enemy Die");
         anim.SetBool("die", true);
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);

@@ -137,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.04, y: 1.88}
+  m_Size: {x: 1.7, y: 1.88}
   m_EdgeRadius: 0
 --- !u!95 &7043036399920112606
 Animator:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e4935e4d3afee48b5cbc7bfda313d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitRange: 1.37
+  hitRange: 2
   hitRate: 3
   nextHitTime: 0
   followRange: 8.66
